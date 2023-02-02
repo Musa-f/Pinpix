@@ -20,7 +20,13 @@ a {
 /* HEADER ALL */
 header {
     height: 100px;
+    padding-top: 10px;
     background-color: #733a39;
+}
+
+header h1 {
+    letter-spacing: 2px;
+    font-size: 4rem;
 }
 
 .div_nav {
@@ -30,7 +36,7 @@ header {
 }
 
 .logo {
-    width: 80px;
+    width: 90px;
     height: 70px;
     padding-right: 20px;
 }
@@ -43,13 +49,13 @@ nav {
     background-color: #733a39;
 }
 
-nav ul {
-    list-style-type: none;
+header nav input {
+    width: 400px;
+    height: 30px;
 }
 
-nav h1 {
-    color: #fff;
-    text-decoration-style: none;
+nav ul {
+    list-style-type: none;
 }
 
 nav .onglets a {
@@ -106,66 +112,4 @@ footer .services .service p {
 
 #end {
     text-align: center;
-}
-
-/* MEDIA */
-/* MIN */
-@media all and (min-width:769px) {
-    .onglets_tel {
-        display: none;
-    }
-}
-
-/* MAX */
-@media all and (max-width:769px) {
-
-    .onglets {
-        top: -180px;
-        position: absolute;
-        position: fixed;
-        background-color: rgba(91, 89, 89, 0.5);
-        backdrop-filter: blur(12px);
-        width: 60%;
-        height: 150%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-left: 40%;
-        transition: all 0.5s ease-in-out;
-        z-index: 2;
-        border-left: solid white 1px;
-        box-shadow: 6px 6px 20px black;
-    }
-
-    nav .onglets a {
-        color: white;
-        border-bottom: #fff solid 2px;
-        font-weight: bold;
-        margin: 25px 0px 25px 0px;
-        font-size: 2.1em;
-    }
-
-    .onglets_tel {
-        z-index: 3;
-    }
-
-    nav.menu-tel .onglets {
-        margin-left: 100%;
-    }
-
-    nav {
-        justify-content: space-between;
-        padding: 0% 5% 0% 2%;
-    }
-}
-
-@media all and (max-width:300px) {
-    h1 {
-        font-size: 1rem;
-    }
-
-    .arobase {
-        font-size: 20px;
-    }
 }

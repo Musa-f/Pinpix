@@ -17,7 +17,11 @@
                     <h1>PinPix</h1>
                 </a>
             </div>
-            <input placeholder="rechercher">
+            <form>
+            <input type="text" name="recherche" id="recherche" placeholder="rechercher">
+            <button type="submit"> <img src=""></button>
+
+</form>
             <div class="onglets">
                 <a href="index.php">Accueil</a>
                 <a href="header/contact.php">Contact</a>
