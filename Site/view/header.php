@@ -22,12 +22,9 @@
 
             <form method="post">
                 <div class="row justify-content-center">
-                    <div class="col-10 form-group">
+                    <div class="col-12 form-group d-flex flex-row">
                         <input type="text" name="recherche" id="recherche" placeholder="rechercher" class="form-control">
-                    </div>
-
-                    <div class="col-2 form-group flex">
-                        <button type="submit" name="submit" class="btn justify-content-start">
+                        <button type="submit" name="submit" class="btn ">
                             <i class="bi bi-search text-white"></i>
                         </button>
                     </div>
