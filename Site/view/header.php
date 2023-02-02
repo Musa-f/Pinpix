@@ -19,11 +19,21 @@
                     <h1>PinPix</h1>
                 </a>
             </div>
-            <form>
-            <input type="text" name="recherche" id="recherche" placeholder="rechercher">
-            <button type="submit"><i class="bi bi-search"></i></button>
 
-</form>
+            <form method="post">
+                <div class="row justify-content-center">
+                    <div class="col-10 form-group">
+                        <input type="text" name="recherche" id="recherche" placeholder="rechercher" class="form-control">
+                    </div>
+
+                    <div class="col-2 form-group flex">
+                        <button type="submit" name="submit" class="btn justify-content-start">
+                            <i class="bi bi-search text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
             <div class="onglets">
                 <a href="index.php">Accueil</a>
                 <a href="header/contact.php">Contact</a>
