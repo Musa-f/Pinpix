@@ -23,7 +23,7 @@
             <form method="post">
                 <div class="row justify-content-center">
                     <div class="col-12 form-group d-flex flex-row">
-                        <input type="text" name="recherche" id="recherche" placeholder="rechercher" class="form-control">
+                        <input type="text" name="recherche" id="recherche" placeholder="Rechercher par tags ou nom d'utilisateur..." class="form-control">
                         <button type="submit" name="submit" class="btn ">
                             <i class="bi bi-search text-white"></i>
                         </button>
@@ -32,9 +32,21 @@
             </form>
 
             <div class="onglets">
-                <a href="index.php">Accueil</a>
-                <a href="header/contact.php">Contact</a>
-                <a href="header/compte.php">Compte</a>
+                <li><a href="index.php">Accueil</a></li>
+                <li><a href="header/contact.php">Contact</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Menu
+                    </a>
+                    <ul class="dropdown-menu nav-connected">
+                        <li><a class="dropdown-item" href="#">Profil</a></li>
+                        <li><a class="dropdown-item" href="#">Compte</a></li>
+                        <li><a class="dropdown-item" href="#">Mes follows</a></li>
+                        <li><a class="dropdown-item" href="#">Se déconnecter</a></li>
+                    </ul>
+                </li>
             </div>
         </nav>
+
+        
     </header>

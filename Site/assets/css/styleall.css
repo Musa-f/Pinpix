@@ -1,3 +1,12 @@
+/* Palette
+#834b4a
+#733a39
+#c2c2c2
+#494949
+#e5e5e5
+*/
+
+
 /* START PAGE CODE */
 *,
 ::before,
@@ -54,8 +63,13 @@ nav {
     font-style: italic;
 }
 
-nav ul {
+nav ul, nav li {
     list-style-type: none;
+}
+
+.onglets{
+    display: flex;
+    flex-direction: row;
 }
 
 nav .onglets a {
@@ -67,7 +81,23 @@ nav .onglets a {
 
 nav a:hover{
     border-bottom: #FFF 1px solid;
+    color: #fff !important;
 }
+
+nav li:hover{
+    color: #fff !important;
+}
+
+li .dropdown-item:hover{
+    color: #494949 !important;
+}
+
+/*Navbar connection actived*/
+.nav-connected{
+    background-color: #733a399f;
+}
+
+
 
 /* CONTENT INDEX */
 
