@@ -51,6 +51,7 @@ nav {
 #recherche{
     width: 370px;
     height: 30px;
+    font-style: italic;
 }
 
 nav ul {

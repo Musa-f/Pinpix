@@ -23,7 +23,7 @@
             <form method="post">
                 <div class="row justify-content-center">
                     <div class="col-12 form-group d-flex flex-row">
-                        <input type="text" name="recherche" id="recherche" placeholder="rechercher" class="form-control">
+                        <input type="text" name="recherche" id="recherche" placeholder="Rechercher par tags ou nom d'utilisateur..." class="form-control">
                         <button type="submit" name="submit" class="btn ">
                             <i class="bi bi-search text-white"></i>
                         </button>
