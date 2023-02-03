@@ -170,17 +170,17 @@ footer .services .service p {
   height: 600px;
 }
 
-.gallery-title {
+.profil-gallery-title {
   position: absolute;
   top: -47px;
   font-size: 3em;
   margin-left: 10px;
 }
 
-.gallery-title::after {
+.profil-gallery-title::after {
   content: "";
 }
-.gallery-title:hover::after {
+.profil-gallery-title:hover::after {
   content: " ⟶";
   color: #212529;
 }
@@ -258,4 +258,18 @@ footer .services .service p {
 #submit_image {
   background-color: #733a39;
   color: #fff;
+}
+
+/*-------------------------------------- GALERIE.PHP -------------------------------------- */
+.filtre {
+  background: none;
+  border: none;
+}
+
+.filtre i {
+  font-size: 1.3em;
+}
+
+.gallery-title {
+  font-size: 3em;
 }/*# sourceMappingURL=all.css.map */

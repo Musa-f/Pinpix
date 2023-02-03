@@ -34,7 +34,7 @@
     <div class="row mt-5">
         <div class="col-12">
             <div class="element mb-5">
-                <h2 class="gallery-title"><a href="" class="text-dark">Galerie</a></h2>
+                <h2 class="profil-gallery-title"><a href="" class="text-dark">Galerie</a></h2>
 
                 <div class="top"></div>
                 <div class="left"></div>

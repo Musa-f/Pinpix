@@ -177,14 +177,14 @@ footer .services .service p {
     height: 600px;
 }
 
-.gallery-title{
+.profil-gallery-title{
     position: absolute;
     top: -47px;
     font-size: 3em;
     margin-left: 10px;
 }
 
-.gallery-title::after{
+.profil-gallery-title::after{
     content: "⟶";
     color: #000;
 }
@@ -266,3 +266,4 @@ footer .services .service p {
 }
 
 /*-------------------------------------- COMPTE.PHP -------------------------------------- */
+
