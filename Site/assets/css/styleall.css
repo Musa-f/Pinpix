@@ -92,6 +92,11 @@ li .dropdown-item:hover{
     color: #494949 !important;
 }
 
+.form-control:focus {
+    border-color: #733a39;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+  }
+
 /*Navbar connection actived*/
 .nav-connected{
     background-color: #733a399f;
