@@ -93,7 +93,7 @@
 
 
                 <!-- Button modal -->
-                <button type="button" class="btn add-image" data-bs-toggle="modal" data-bs-target="#myModal">
+                <button type="button" class="add-image" data-bs-toggle="modal" data-bs-target="#myModal">
                     <i class="bi bi-plus-square-fill"></i>
                 </button>
 

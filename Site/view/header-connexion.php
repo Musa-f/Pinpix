@@ -36,7 +36,7 @@
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="header/contact.php">Contact</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle menu-focus" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Menu
                     </a>
                     <ul class="dropdown-menu nav-connected">
