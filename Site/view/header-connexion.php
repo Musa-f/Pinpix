@@ -15,8 +15,8 @@
     <header>
         <nav>
             <div class="div_nav">
-                <a href="#"><img class="logo" src="../assets/ressources/icons/logo.png"></a>
-                <a href="#">
+                <img class="logo" src="../assets/ressources/icons/logo.png">
+                <a href="#" class="header">
                     <h1>PinPix</h1>
                 </a>
             </div>

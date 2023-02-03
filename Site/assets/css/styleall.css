@@ -1,4 +1,5 @@
-/* Palette
+/*-------------------------------------- COLORS -------------------------------------- */
+/*
 #834b4a
 #733a39
 #c2c2c2
@@ -48,6 +49,11 @@ header h1 {
 .logo {
     width: 70px;
     padding-right: 20px;
+}
+
+.header{
+    border: none !important;
+    text-decoration: none;
 }
 
 nav {
@@ -154,7 +160,8 @@ footer .services .service p {
     text-align: center;
 }
 
-/*Profil.php*/
+/*-------------------------------------- PROFIL.PHP -------------------------------------- */
+
 .avatar{
     width: 160px;
 }
@@ -239,3 +246,4 @@ footer .services .service p {
     color: #fff;
 }
 
+/*-------------------------------------- COMPTE.PHP -------------------------------------- */

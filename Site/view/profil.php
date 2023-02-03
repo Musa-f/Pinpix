@@ -8,7 +8,7 @@
         </div>
         <div class="col-6">
             <div class="row">
-                <div class="col-4">
+                <div class="col-3">
                     <h2>Username</h2>
                 </div>
                 <div class="col-1 d-flex justify-content-center align-items-center">
