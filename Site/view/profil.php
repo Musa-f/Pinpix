@@ -35,64 +35,99 @@
         <div class="col-12">
             <div class="element mb-5">
                 <h2 class="gallery-title">Galerie</h2>
+
                 <div class="top"></div>
                 <div class="left"></div>
                 <div class="bottom"></div>
                 <div class="right"></div>
                 
-                <!-- <div class="d-flex justify-content-around"> -->
                 <div class="gallery-images">
-                    <div>
-                        <div class="header">
-                            <div class="info-user">
-                                <div class="username"></div>
-                                <div class="follow"></div>
-                            </div>
-                            <div class="info-picture">
-                                <div class="nb-likes"></div>
-                                <div class="like"></div>
-                            </div>
+                    
+                    <div class="box d-flex flex-column">
+                        <div class="d-flex justify-content-between">
+                            <p>@username <i class="bi bi-heart-fill"></i></p>
+                            <p>189<i class="bi bi-hand-thumbs-up"></i></p>
                         </div>
-                        <div class="picture"></div>
+                        <img src="https://fastly.picsum.photos/id/641/200/200.jpg?hmac=9pd71nRRRsT7TXf0zn0hQ6tW6VQnQ-UtL1JXDhJZB8E" alt="">
                     </div>
-                    <div>test</div>
-                    <div>test</div>
-                    <div>test</div>
-                    <div>test</div>
-                    <div>test</div>
-                    <div>test</div>
-                    <div>test</div>
+
+                    <!-- Divs à supprimer plus tard -->
+                    <div class="box d-flex flex-column">
+                        <div class="d-flex justify-content-between">
+                            <p>@username <i class="bi bi-heart-fill"></i></p>
+                            <p>189<i class="bi bi-hand-thumbs-up"></i></p>
+                        </div>
+                        <img src="https://fastly.picsum.photos/id/605/200/200.jpg?hmac=aAxC3x4fmu7RXhLH-1idijrAUvlZVEwlUqjzKR80YWo" alt="">
+                    </div>
+                    <div class="box d-flex flex-column">
+                        <div class="d-flex justify-content-between">
+                            <p>@username <i class="bi bi-heart-fill"></i></p>
+                            <p>189<i class="bi bi-hand-thumbs-up"></i></p>
+                        </div>
+                        <img src="https://fastly.picsum.photos/id/790/200/200.jpg?hmac=Y1d81XFNx8LJhlNsiwDoDgIn4mF3SK9nTdIVqkkHS9I" alt="">
+                    </div>
+                    <div class="box d-flex flex-column">
+                        <div class="d-flex justify-content-between">
+                            <p>@username <i class="bi bi-heart-fill"></i></p>
+                            <p>189<i class="bi bi-hand-thumbs-up"></i></p>
+                        </div>
+                        <img src="https://fastly.picsum.photos/id/334/200/200.jpg?hmac=Q9rDA3ngheQsAB7HoLSjpzYS0kqelfZIJBGDkW-4wgk" alt="">
+                    </div>
+                    <div class="box d-flex flex-column">
+                        <div class="d-flex justify-content-between">
+                            <p>@username <i class="bi bi-heart-fill"></i></p>
+                            <p>189<i class="bi bi-hand-thumbs-up"></i></p>
+                        </div>
+                        <img src="https://fastly.picsum.photos/id/141/200/200.jpg?hmac=cy5VCF6f8Mq7cum6d-R7m7mbrGC0wgUzI4UpSX_qkIk" alt="">
+                    </div>
+                    <div class="box d-flex flex-column">
+                        <div class="d-flex justify-content-between">
+                            <p>@username <i class="bi bi-heart-fill"></i></p>
+                            <p>189<i class="bi bi-hand-thumbs-up"></i></p>
+                        </div>
+                        <img src="https://fastly.picsum.photos/id/254/200/200.jpg?hmac=wM9u9N0tgdWKFIr8MxBLr8rLoV0JjUUKLk32XFV8agQ" alt="">
+                    </div>
+                    <div class="box d-flex flex-column">
+                        <div class="d-flex justify-content-between">
+                            <p>@username <i class="bi bi-heart-fill"></i></p>
+                            <p>189<i class="bi bi-hand-thumbs-up"></i></p>
+                        </div>
+                        <img src="https://fastly.picsum.photos/id/738/200/200.jpg?hmac=s1pXxIw4TdDLyUY2RRVeDyhLPUF2xW3AFjdzjVsE6zc" alt="">
+                    </div>
+                    <!-- Fin des divs à supprimer -->
+
                 </div>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn add-image" data-toggle="modal" data-target="#exampleModalCenter">
-                <i class="bi bi-plus-square-fill"></i>
+
+
+                <!-- Button modal -->
+                <button type="button" class="btn add-image" data-toggle="modal" data-target="#modal">
+                    <i class="bi bi-plus-square-fill"></i>
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
+                <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-            </div>
 
+            </div>
         </div>
     </div>
-
 </div>
 
 <?php include "footer.php" ?>

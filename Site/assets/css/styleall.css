@@ -4,6 +4,7 @@
 #c2c2c2
 #494949
 #e5e5e5
+#212529
 */
 
 
@@ -208,11 +209,13 @@ footer .services .service p {
     justify-items: center;
 }
 
-.gallery-images div{
+.gallery-images .box{
     width: 200px;
-    height: 200px;
-    border: 2px solid black;
     margin-top: 50px;
+}
+
+.gallery-images .box p{
+    margin: 0;
 }
 
 .add-image{
@@ -228,6 +231,3 @@ footer .services .service p {
     font-weight: bold;
 }
 
-.gallery-images div div{
-    border: 0;
-}
