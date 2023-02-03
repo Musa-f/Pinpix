@@ -1,5 +1,5 @@
     <footer>
-        <h1>Infos utile</h1>
+        <h1>Infos utiles</h1>
         <div class="services">
             <div>
                 <nav class="nav-footer">
