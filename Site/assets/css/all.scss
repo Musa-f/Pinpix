@@ -285,6 +285,7 @@ footer .services .service p {
     font-size: 3em;
 }
 
+
 /*-------------------------------------- RESEARCH.PHP -------------------------------------- */
 
 .nav-tabs{
@@ -334,5 +335,21 @@ li.found-user a{
 
 
 .btn-inscription{
+    color: #fff;
     background: #733a39;
 }
+
+.btn-inscription:hover{
+    background: #733a39;
+}
+
+
+/*-------------------------------------- CONTACT.PHP -------------------------------------- */
+
+#moncercle{
+    background:#bfd70e;
+    border-radius:50%;
+    width:160px;
+    height:160px;
+    border:2px solid #679403; 
+  }
