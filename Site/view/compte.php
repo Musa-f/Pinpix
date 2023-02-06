@@ -6,11 +6,11 @@
             <!-- Modification compte -->
             <div class="row">
                 <!-- Avatar -->
-                <div class="col">
+                <div class="col-3">
                     <div class="row change-image-account"><img src="" alt=""></div>
                     <div class="row">
                         <div class="form-group mt-2">
-                            <label for="upload_image" class="custom-file-label">Fichier</label>
+                            <label for="upload_image" class="custom-file-label"></label>
                             <input type="file" class="form-control form-control-file" name="upload_image">
                         </div>
                     </div>
