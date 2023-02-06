@@ -9,6 +9,7 @@
 #212529
 */
 /* START PAGE CODE */
+@import url("https://fonts.googleapis.com/css2?family=Limelight&display=swap");
 *,
 ::before,
 ::after {
@@ -27,7 +28,18 @@ a {
   color: #FFF;
 }
 
+.titles-pages {
+  font-size: 2.3em;
+  color: #733a39;
+  font-weight: 600;
+}
+
 /* HEADER ALL */
+.title-header {
+  margin: 0 !important;
+  font-family: "Limelight", cursive;
+}
+
 header {
   height: 100px;
   padding-top: 10px;
@@ -313,9 +325,38 @@ li.found-user a {
 
 /*-------------------------------------- COMPTE.PHP -------------------------------------- */
 .change-image-account {
-  width: 160px;
-  height: 200px;
-  border: solid 2px black;
+  width: 200px;
+  height: 250px;
+}
+
+.btn-account {
+  width: 100px;
+  margin: 3px;
+}
+
+.input-upload-img {
+  width: 200px;
+}
+
+.btn-account-validate {
+  background: #733a39;
+  color: #fff;
+}
+
+.btn-account-validate:hover {
+  background: #62302f;
+  color: #fff;
+}
+
+.btn-account-cancel {
+  border: #733a39 2px solid;
+  background: none;
+  color: #733a39;
+}
+
+.btn-account-cancel:hover {
+  border: #62302f 2px solid;
+  color: #62302f;
 }
 
 /*-------------------------------------- INSCRIPTION1.PHP -------------------------------------- */

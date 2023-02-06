@@ -17,7 +17,7 @@
             <div class="div_nav">
                 <img class="logo" src="../assets/ressources/icons/logo.png">
                 <a href="#" class="header">
-                    <h1>PinPix</h1>
+                    <h1 class="title-header">PinPix</h1>
                 </a>
             </div>
 
