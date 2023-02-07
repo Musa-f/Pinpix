@@ -373,7 +373,15 @@ li.found-user a {
 #moncercle {
   background: #bfd70e;
   border-radius: 50%;
-  width: 160px;
-  height: 160px;
+  width: 600px;
+  height: 600px;
   border: 2px solid #679403;
+  margin-bottom: 20px;
+}
+
+#rectangle {
+  width: 700px;
+  height: 400px;
+  background: rgb(117, 203, 247);
+  margin-bottom: 20px;
 }/*# sourceMappingURL=all.css.map */
