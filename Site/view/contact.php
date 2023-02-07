@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="all.css">
 
-    <title>Document</title>
+    <title>Contact</title>
 </head>
 <body>
 <?php include('header.php');?>
@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-8">
 
-            <h2 class="Title-pages">CONTACT</h2>
+            <h2 class="titles-pages">CONTACT</h2>
             <div class="box">
                 <div id="moncercle"></div>
                 <div class="rectangle ">

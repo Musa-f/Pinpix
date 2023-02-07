@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="all.css">
 
-    <title>Document</title>
+    <title>Connexion</title>
 </head>
 <body>
    <?php include('header.php');?>
@@ -18,11 +18,11 @@
       <h2 class="titles-pages">CONNEXION</h2>
 
       <form>
-          <div class="form-group mt-4 mb-4">
+          <div class="form-group1 mt-4 mb-4">
             <label for="exampleInputEmail1">EMAIL</label>
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email">
           </div>
-          <div class="form-group mt-4 mb-4">
+          <div class="form-group1 mt-4 mb-4">
             <label for="exampleInputPassword1">MOT DE PASSE</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
           </div>
