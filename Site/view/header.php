@@ -35,7 +35,7 @@
             <div class="onglets">
                 <a href="index.php">Accueil</a>
                 <a href="header/contact.php">Contact</a>
-                <a href="header/compte.php">Connexion</a>
+                <a href="connexion.php">Connexion</a>
             </div>
         </nav>
     </header>
