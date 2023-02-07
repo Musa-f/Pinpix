@@ -1,0 +1,10 @@
+body{
+    background-color: aquamarine;
+}
+.test{
+    width: 200px;
+    transition: 0.5s;
+}
+.test:hover{
+    transform: scale(5) translateX(80px) rotate(360000deg);
+}

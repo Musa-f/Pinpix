@@ -1,25 +1,39 @@
 <?php
 function getMDP($bdd,$name_user,$pwd_user){
+
     try{
+        //On recherche l id par le nom et le mdp
         $req = $bdd->prepare("SELECT id_user FROM users where name_user = :name_user and pwd_user = :pwd_user");
         $req->execute(array(
             "name_user" => $name_user,
             "pwd_user" => $pwd_user
         ));
-        return $req->fetch(); 
+        return $req; 
 
     }catch(Exception $e){
         die("error : ".$e->getMessage());
     }
 }
 
-function selectUser($bdd, $id_user){
+function selectAllUserById($bdd, $id_user){
     try{
         $req = $bdd->prepare("SELECT * FROM users where id_user = :id_user");
         $req->execute(array(
             "id_user" => $id_user
         ));
-        return $req->fetch(); 
+        return $req; 
+
+    }catch(Exception $e){
+        die("error : ".$e->getMessage());
+    }
+}
+function selectAllUserByName($bdd, $name_user){
+    try{
+        $req = $bdd->prepare("SELECT * FROM users where name_user = :name_user");
+        $req->execute(array(
+            "name_user" => $name_user
+        ));
+        return $req; 
 
     }catch(Exception $e){
         die("error : ".$e->getMessage());
@@ -53,6 +67,7 @@ function getImg($bdd,$id_gallery){
 }
 
 function getGal($bdd,$id_user){
+    try{
     $req = $bdd->prepare(
         "SELECT id_gallery FROM gallery
          WHERE id_gallery in (SELECT id_gallery FROM give WHERE id_user = :id_user)");
@@ -60,9 +75,13 @@ function getGal($bdd,$id_user){
         "id_user" => $id_user
     ));
     return $req;
+    }catch(Exception $e){
+        die("error : ".$e->getMessage());
+    }
 }
 
 function getLink($bdd, $id_image, $id_gallery){
+    try{
     $req = $bdd->prepare(
         "SELECT id_gallery from links where id_image = :id_image and id_gallery = :id_gallery");
     $req->execute(array(
@@ -70,5 +89,9 @@ function getLink($bdd, $id_image, $id_gallery){
         "id_gallery" => $id_gallery
     ));
     return $req;
+    }catch(Exception $e){
+        die("error : ".$e->getMessage());
+    }
 }
+
 ?>

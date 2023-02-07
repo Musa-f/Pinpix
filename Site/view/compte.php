@@ -49,10 +49,40 @@
                     </div>
                 </div>
             </div>
-            <!-- Suppressions, validation, annulation -->
+            <!-- Suppression, validation, annulation -->
             <div class="row text-end mt-5">
                 <div class="col-10 mt-5">
-                    <button type="submit" class="btn btn-secondary">Supprimer mon compte</button>
+
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal">Supprimer mon compte</button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header align-self-center">
+                                <h5 class="modal-title">Suppression définitive</h5>
+                            </div>
+                            <div class="modal-body text-center">
+                                <p>Cette action est irréversible. Elle entraînera la suppression de toutes vos données.</p>
+                                <p>Êtes-vous sûre de vouloir fermer votre compte ?</p>
+                            </div>
+                            <div class="modal-footer d-flex justify-content-between">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                <button type="button" class="btn btn-account btn-account-validate">Confirmer</button>
+                            </div>
+                                <!-- <div class="modal-header text-center">
+                                    <h5 class="modal-title text-uppercase" id="exampleModalLongTitle">
+                                        Confirmez la suppression du compte</h5>
+                                        <br>
+                                        <form action="" method="post">
+                                            <button type="submit" name="submit" class="btn" id="submit_image">Confirmer</button>
+                                            <button type="submit" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                        </form> -->
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -60,3 +90,7 @@
     </div>
 
 <?php include 'footer.php' ?>
+
+
+
+               

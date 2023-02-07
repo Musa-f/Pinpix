@@ -1,13 +1,14 @@
 <?php
     session_start();
-    include("../modal/connect.php");
-    include("../modal/insert.php");
-    include("../modal/get.php");
-    include("../modal/connexion_inscription.php");
+    include("../model/connect.php");
+    include("../model/insert.php");
+    include("../model/get.php");
+    include("../model/connexion_inscription.php");
 
 
     function connexion($bdd){
         $user = getMDP($bdd,"Micaelle","456michaelle");
+        $user = $user->fetch();
 
         if(isset($_SESSION["nom"]) != null){
         }else{
@@ -17,9 +18,8 @@
             }
         }
     }
-    connexion($bdd);
     function addImage($bdd){
-        if(isset($_FILES["img"])){
+        if(isset($_FILES["img"]) and $_FILES["img"] != null){
             //On obtient l'image envoyée
             $tmpName = $_FILES['img']['tmp_name'];
             $name = $_FILES['img']['name'];
@@ -49,15 +49,43 @@
             }
         }
     }
+    
+    function afficheGalerie($bdd, $id_user){
+        //on cherche l ID de la galerie
+        $id_gallery = getGal($bdd,$id_user);
+        $id_gallery = $id_gallery -> fetch();
+        //on va chercher le lien des images
+        $img = getImg($bdd,$id_gallery["id_gallery"]);
+        $img = $img -> fetchAll();
+        if(count($img) == 0){
+            echo "l'utilisateur n'a pas de tag";
+        }else{
+        //on parcours le tableau img et on affiche les images par leur liens
+        foreach($img as $key => $value){
+        $value = $value["url_image"];
+        echo "<br> <img class='test' src='$value'> ";
+        }
 
-    function afficheGalerie($bdd){
-        $id_gallery = getGal($bdd,$_SESSION["id"]);
-        
+        }
+    }
 
+    function rechercheUser($bdd){
+        //on vérifie si l'input à été envoyé 
+        if(isset($_GET["recherche"]) and $_GET["recherche"] != null){
+            $recherche = $_GET["recherche"];
+            //on va chercher l user par le nom
+            $id_user = selectAllUserByName($bdd, $recherche);
+            $id_user = $id_user->fetch();
+                //on va afficher la galerie par l user ID
+                afficheGalerie($bdd, $id_user["id_user"]);
+        }else{
+            echo "vous n'avez pas mis de tag";
+        }
     }
     connexion($bdd);
     addImage($bdd);
-    afficheGalerie($bdd)
+    afficheGalerie($bdd, $_SESSION["id"]);
+    rechercheUser($bdd);
     
 ?>
 
@@ -77,11 +105,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/test.css">
 </head>
 <body>
     <form action="" method="post" enctype="multipart/form-data">
         <input type="file" name="img" id="img">
         <input type="submit" value="aaaaaaaa">
+    </form>
+
+    <form action="" method="get">
+    <input type="text" name="recherche" id="recherche">
+    <input type="submit" value="a">
     </form>
 </body>
 </html>
