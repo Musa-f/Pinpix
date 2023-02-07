@@ -298,6 +298,7 @@ footer .services .service p {
     font-size: 3em;
 }
 
+
 /*-------------------------------------- RESEARCH.PHP -------------------------------------- */
 
 .nav-tabs{
@@ -372,9 +373,57 @@ li.found-user a{
     color: #62302f;
 }
 
+/*-------------------------------------- DASHBOARD.PHP -------------------------------------- */
+
+.form-role{
+    width: 200px;
+}
+
+table, tr, td{
+    border: none;
+}
+
+thead th{
+    border-bottom: #62302f 2px solid;
+}
+
+tbody tr td{
+    border-bottom: rgb(166, 163, 163) 1px solid;
+}
+
+.research-account, .research-tags{
+    margin-left: 10px;
+    font-size: 1.6em;
+}
+
 /*-------------------------------------- INSCRIPTION1.PHP -------------------------------------- */
 
 
 .btn-inscription{
+    color: #fff;
     background: #733a39;
 }
+
+.btn-inscription:hover{
+    background: #733a39;
+}
+
+
+/*-------------------------------------- CONTACT.PHP -------------------------------------- */
+
+#moncercle{
+    background:#bfd70e;
+    border-radius:50%;
+    width:600px;
+    height:600px;
+    border:2px solid #679403; 
+    margin-bottom: 20px;
+}
+
+#rectangle{
+    width:700px;
+	height:400px;
+	background:rgb(117, 203, 247);
+    margin-bottom: 20px;
+}
+
