@@ -97,52 +97,52 @@
                     <i class="bi bi-plus-square-fill"></i>
                 </button>
 
-                <!-- Modal -->
-                <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title text-uppercase" id="exampleModalLongTitle">
-                                    <i class="bi bi-image-fill"></i>
-                                    Ajouter une image
-                                </h5>
-                            </div>
-                            <form action="" method="post">
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="name_image">Nom</label>
-                                        <input type="text" class="form-control" name="image_name">
-                                    </div>
-                                    <div class="form-group mt-2">
-                                        <label for="tags_image">Tags</label>
-                                        <select class="form-select" id="tags_image" name="tags_image">
-                                            <option>Nature</option>
-                                            <option>Animaux</option>
-                                            <option>Technologie</option>
-                                            <option>Design</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group mt-2">
-                                        <label for="upload_image" class="custom-file-label">Fichier</label>
-                                        <input type="file" class="form-control form-control-file" name="upload_image">
-                                    </div>
-                                    <div class="form-group mt-2">
-                                        <label for="description_image">Description</label>
-                                        <textarea name="description_image" cols="30" rows="6" class="form-control"></textarea>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                    <button type="submit" name="submit" class="btn" id="submit_image">Enregistrer</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-uppercase" id="exampleModalLongTitle">
+                        <i class="bi bi-image-fill"></i>
+                        Ajouter une image
+                    </h5>
+                </div>
+                <form action="" method="post">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="name_image">Nom</label>
+                            <input type="text" class="form-control" name="image_name">
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="tags_image">Tags</label>
+                            <select class="form-select" id="tags_image" name="tags_image">
+                                <option>Nature</option>
+                                <option>Animaux</option>
+                                <option>Technologie</option>
+                                <option>Design</option>
+                            </select>
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="upload_image" class="custom-file-label">Fichier</label>
+                            <input type="file" class="form-control form-control-file" name="upload_image">
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="description_image">Description</label>
+                            <textarea name="description_image" cols="30" rows="6" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="submit" name="submit" class="btn" id="submit_image">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 <?php include "footer.php" ?>
