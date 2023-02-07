@@ -370,18 +370,40 @@ li.found-user a {
 }
 
 /*-------------------------------------- CONTACT.PHP -------------------------------------- */
+.box {
+  position: relative;
+}
+
 #moncercle {
-  background: #bfd70e;
   border-radius: 50%;
   width: 600px;
   height: 600px;
-  border: 2px solid #679403;
   margin-bottom: 20px;
+  border: #733a39 8px solid;
 }
 
-#rectangle {
+.rectangle {
+  position: absolute;
   width: 700px;
-  height: 400px;
-  background: rgb(117, 203, 247);
-  margin-bottom: 20px;
+  top: 120px;
+  right: -250px;
+  bottom: 100px;
+}
+
+.btn-primary {
+  color: #733a39;
+  background-color: #fff;
+}
+
+.btn-primary:hover {
+  background: #FFF;
+  color: #733a39;
+}
+
+form.form-rectangle {
+  background-color: #62302f;
+}
+
+.form-group {
+  color: #fff;
 }/*# sourceMappingURL=all.css.map */
