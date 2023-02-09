@@ -182,6 +182,10 @@ footer .services {
   list-style-type: none;
 }
 
+.reseaux li {
+  font-size: 2rem;
+}
+
 .services div ul li a:hover {
   color: #000;
 }
