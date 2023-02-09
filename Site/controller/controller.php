@@ -22,7 +22,23 @@
                 }else{
                     echo "mdp ou user incorrect";
                 }
-            }    
+            }
+        }elseif(isset($_POST["nom"]) and isset($_POST["mail"]) and isset($_POST["mdp"])){
+            $mail = $_POST["mail"];
+            $mdp = $_POST["mdp"];
+
+            $user = getMDP($bdd, $mail, $mdp);
+            $user = $user->fetch();
+    
+            if(isset($_SESSION["nom"]) != null){
+    
+            }else{
+                if($user != null){
+                    verifConnexion($bdd, $user);
+                }else{
+                    echo "mdp ou user incorrect";
+                }
+            }
         }
     }
 
@@ -36,7 +52,15 @@
             $verifnom = getAllUserByName($bdd, $nom);
             $verifnom = $verifnom -> fetchAll();
             if(count($verifmail) == 0 and count($verifnom) == 0){
-                insertUser($bdd,$nom, $mdp, $mail, 63, 10);
+                insertUser($bdd,$nom, $mdp, $mail, 1, 10);
+                createGal($bdd,$nom, "cice set ma galery");
+                $id_gallery = getIdGal($bdd,$nom);
+                $id_gallery = $id_gallery -> fetch();
+                $id_gallery = $id_gallery["id_gallery"];
+                $id_user = getAllUserByName($bdd, $nom);
+                $id_user = $id_user -> fetch();
+                $id_user = $id_user["id_user"];
+                insertUserGal($bdd, $id_gallery, $id_user);
             }else{
                 echo "l'email ou l'utilisateur existe déjà";
             }
