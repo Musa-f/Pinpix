@@ -115,14 +115,26 @@ function getLink($bdd, $id_image, $id_gallery){
     }
 }
 
-function getLike($bdd, $id_image, $id_user){
+function getLike($bdd, $id_image){
     try{
          //On recherche le nombre de like
     $req = $bdd->prepare(
-        "SELECT COUNT(*) FROM likes WHERE :id_image");
+        "SELECT * FROM likes WHERE :id_image");
     $req->execute(array(
-        "id_image" => $id_image,
-        "id_user" => $id_user
+        "id_image" => $id_image
+    ));
+    return $req;
+    }catch(Exception $e){
+        die("error : ".$e->getMessage());
+    }
+}
+function getfollow($bdd, $id_user_2){
+    try{
+         //On recherche le nombre de like
+    $req = $bdd->prepare(
+        "SELECT * FROM follow WHERE :id_user_2");
+    $req->execute(array(
+        "id_user_2" => $id_user_2
     ));
     return $req;
     }catch(Exception $e){

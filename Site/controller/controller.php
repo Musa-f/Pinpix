@@ -111,13 +111,36 @@
         $nom_user = getAllUserById($bdd, $id_user);   
         $nom_user = $nom_user ->fetch();
         $nom_user = $nom_user["name_user"];
+
+
+        
         if(count($img) == 0){
             echo "l'utilisateur n'a pas de tag";
         }else{
         //on parcour le tableau img et on affiche les images par leur lien
         foreach($img as $key => $value){
         $value = $value["url_image"];
-        echo "<br> $nom_user <br> <img class='test' src='$value'> ";
+        $id_image = getIdImg($bdd,$value);
+        $id_image = $id_image -> fetch();
+        $id_image = $id_image[0];
+
+        $nb_likes = getLike($bdd, $id_image);
+        $nb_likes = $nb_likes -> fetchAll();
+        if(count($nb_likes) == 0){
+            $nb_likes = 0;
+        }else{
+            $nb_likes = count($nb_likes);
+        }
+
+        $nb_follow = getfollow($bdd, $id_user);
+        $nb_follow = $nb_follow -> fetchAll();
+        if(count($nb_follow) == 0){
+            $nb_follow = 0;
+        }else{
+            $nb_follow = count($nb_follow);
+        }
+        
+        echo "<br> $nom_user <br> <img class='test' src='$value'><br> follow $nb_follow <br> like $nb_likes";
         }
 
         }
@@ -206,6 +229,6 @@ if(isset($_GET["page"])){
 
     include("../view/$page"); 
 }    
+afficheUserGalerie($bdd, 1);
 include("../view/footer.php");
->>>>>>> 199da3fccd2f74a470bc4589d2820a74e5a35467
 ?>
