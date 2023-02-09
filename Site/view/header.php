@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/all.css">
-    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
     <?php 
         echo "<link rel='stylesheet' href='../assets/css/$style'>";
     ?>
@@ -49,7 +49,7 @@
                         </a>
                     <ul class="dropdown-menu nav-connected">
                         <li><a class="dropdown-item" href="controller.php?page=profil">Profil</a></li>
-                        <li><a class="dropdown-item" href="controller.php?page=compte">'.$_SESSION["nom"].'</a></li>
+                        <li><a class="dropdown-item" href="controller.php?page=compte" id="compte">'.$_SESSION["nom"].'</a></li>
                         <li><a class="dropdown-item" href="controller.php?page=follows">Mes follows</a></li>
                         <li><a class="dropdown-item" href="controller.php?page=deconnexion">Se déconnecter</a></li>';
                         function admin(){
