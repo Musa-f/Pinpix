@@ -189,15 +189,9 @@ if(isset($_GET["page"])){
             $page.=".php";
             include("../view/$page");
     }
-<<<<<<< HEAD
-=======
 }else{
     $page.="accueil";
     $css = $page;
     $page.=".php";
     include("../view/$page"); 
-}    
-    
-    
-?>
->>>>>>> eef0fd6414a783114ba0379d7a4a38ca7547afff
+}
