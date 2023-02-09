@@ -5,6 +5,6 @@
         Inscrivez-vous dès maintenant et faites partie d'une communauté en constante évolution de passionnés de la photographie.</p>
 </section>
 <section>
-
+    
 </section>
 <?php include('footer.php'); ?>

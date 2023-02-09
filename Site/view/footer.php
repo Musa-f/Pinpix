@@ -13,7 +13,7 @@
                 </nav>
             </div>
             <div>
-                <ul>
+                <ul class="reseaux">
                     <li><a href=""><i class="bi bi-facebook"></i></a></li>
                     <li><a href=""><i class="bi bi-instagram"></i></a></li>
                     <li><a href=""><i class="bi bi-twitter"></i></a></li>

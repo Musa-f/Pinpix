@@ -175,8 +175,16 @@ footer .services .service {
   margin-right: 30px;
 }
 
-footer .services .service p {
-  max-width: 250px;
+.services div ul {
+  list-style-type: none;
+}
+
+.reseaux li {
+  font-size: 2rem;
+}
+
+.services div ul li a:hover {
+  color: #000;
 }
 
 #end {
