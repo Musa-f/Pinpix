@@ -192,6 +192,7 @@
                         </div>
                         <div class="tab-pane fade" id="pills-followers" role="tabpanel">
                             <ul class="list-unstyled mt-4">
+                                <!-- -------------APPEL PHP------------- -->
                                 <li class="d-flex justify-content-between align-items-center">
                                     <a href="" class="color-dark a-hover">Follower1</a>
                                     <i class="bi bi-suit-heart"></i>
@@ -199,23 +200,8 @@
                                     <i class="bi bi-suit-heart-fill"></i> -->
                                 </li>
                                 <hr>
-                                <!-- A EFFACER PLUS TARD -->
-                                <li class="d-flex justify-content-between align-items-center">
-                                    <a href="" class="color-dark a-hover">Follower2</a>
-                                    <i class="bi bi-suit-heart"></i>
-                                </li>
-                                <hr>
-                                <li class="d-flex justify-content-between align-items-center">
-                                    <a href="" class="color-dark a-hover">Follower3</a>
-                                    <i class="bi bi-suit-heart"></i>
-                                </li>
-                                <hr>
-                                <li class="d-flex justify-content-between align-items-center">
-                                    <a href="" class="color-dark a-hover">Follower4</a>
-                                    <i class="bi bi-suit-heart"></i>
-                                </li>
-                                <hr>    
-                                <!-- FIN -->
+                                <!-- -------------FIN------------- -->
+
                             </ul>
                         </div>
                     </div>

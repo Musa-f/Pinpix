@@ -144,10 +144,60 @@
             echo "vous n'avez pas mis de tag";
         }
     }
+//  On a lié les pages au controleur grâce à un faux formulaire
+if(isset($_GET["page"])){
     $page = "connexion";
     switch($page){
         case "connexion":
             $css = $page;
             $page.=".php";
             include("../view/$page");
+        case "accueil":
+            $css = $page;
+            $page.=".php";
+            include("../view/$page");
+        case "inscription":
+            $css = $page;
+            $page.=".php";
+            include("../view/$page");
+        case "connexion":
+            $css = $page;
+            $page.=".php";
+            include("../view/$page");
+        case "contact":
+            $css = $page;
+            $page.=".php";
+            include("../view/$page");
+        case "dashboard":
+            $css = $page;
+            $page.=".php";
+            include("../view/$page");
+        case "follows":
+            $css = $page;
+            $page.=".php";
+            include("../view/$page");
+        case "galerie":
+            $css = $page;
+            $page.=".php";
+            include("../view/$page");
+        case "profil":
+            $css = $page;
+            $page.=".php";
+            include("../view/$page");
+        case "recherche":
+            $css = $page;
+            $page.=".php";
+            include("../view/$page");
     }
+<<<<<<< HEAD
+=======
+}else{
+    $page.="accueil";
+    $css = $page;
+    $page.=".php";
+    include("../view/$page"); 
+}    
+    
+    
+?>
+>>>>>>> eef0fd6414a783114ba0379d7a4a38ca7547afff

@@ -136,12 +136,6 @@ li .dropdown-item:hover {
   color: #fff;
 }
 
-/* CONTENT INDEX */
-.section_index {
-  margin: 100px 50px 100px 50px;
-  text-align: center;
-}
-
 /* NAV FOOTER */
 footer {
   color: #fff;
@@ -175,16 +169,8 @@ footer .services .service {
   margin-right: 30px;
 }
 
-.services div ul {
-  list-style-type: none;
-}
-
-.reseaux li {
-  font-size: 2rem;
-}
-
-.services div ul li a:hover {
-  color: #000;
+footer .services .service p {
+  max-width: 250px;
 }
 
 #end {
