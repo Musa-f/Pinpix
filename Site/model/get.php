@@ -85,6 +85,21 @@ function getGal($bdd,$id_user){
     }
 }
 
+function getIdGal($bdd,$name_gallery){
+    try{
+         //On recherche la gallerie d image par id de l'utilisateur
+    $req = $bdd->prepare(
+        "SELECT id_gallery FROM gallery
+         WHERE name_gallery = :name_gallery");
+    $req->execute(array(
+        "name_gallery" => $name_gallery
+    ));
+    return $req;
+    }catch(Exception $e){
+        die("error : ".$e->getMessage());
+    }
+}
+
 function getLink($bdd, $id_image, $id_gallery){
     try{
          //On recherche si l'image est déjà dans la galerie

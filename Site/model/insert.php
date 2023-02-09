@@ -46,6 +46,40 @@ function insertGal($bdd,$id_image,$id_gallery){
     }catch(Exception $e){
         die("error : ".$e->getMessage());
     }
+}
 
+function createGal($bdd,$name_gallery, $description_gallery){
+    try{
+       $req = $bdd->prepare(
+           "INSERT INTO gallery(name_gallery, description_gallery) VALUES
+           (:name_gallery, :description_gallery)"
+       );
+
+       $req->execute(array(
+           "name_gallery" => $name_gallery,
+           "description_gallery" => $description_gallery
+       ));
+
+       $req->closeCursor();
+   }catch(Exception $e){
+       die("error : ".$e->getMessage());
+   }
+}
+function insertUserGal($bdd,$id_gallery, $id_user){
+    try{
+       $req = $bdd->prepare(
+           "INSERT INTO give(id_gallery, id_user) VALUES 
+           (:id_gallery,:id_user)"
+       );
+
+       $req->execute(array(
+           "id_gallery" => $id_gallery,
+           "id_user" => $id_user 
+       ));
+       
+       $req->closeCursor();
+   }catch(Exception $e){
+       die("error : ".$e->getMessage());
+   }
 }
 ?>
