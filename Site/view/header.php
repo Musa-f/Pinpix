@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/all.css">
     <link rel="stylesheet" href="responsive.css">
-    <link rel="stylesheet" href="<?php echo $style ?>.css">
+    <?php if (isset($style)){
+        echo "<link rel='stylesheet' href='pinpix/site/assets/css/$style.css'>";
+    }
+    ?>
 </head>
 
 <body>
