@@ -9,6 +9,7 @@
 #212529
 */
 @import url("https://fonts.googleapis.com/css2?family=Limelight&display=swap");
+
 *,
 ::before,
 ::after {
@@ -162,17 +163,23 @@ footer h1 {
 
 footer .services {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-footer .services .service {
+footer .services {
   margin-right: 30px;
 }
 
-footer .services .service p {
-  max-width: 250px;
+.services div ul {
+  list-style-type: none;
+}
+
+.reseaux li {
+  font-size: 2rem;
 }
 
 #end {
   text-align: center;
-}/*# sourceMappingURL=all.css.map */
+}
+
+/*# sourceMappingURL=all.css.map */
