@@ -139,8 +139,16 @@
         }else{
             $nb_follow = count($nb_follow);
         }
+
+        $BoolLike = getBoolLike($bdd, $id_image, $_SESSION["id"]);
+        $BoolLike = $BoolLike -> fetchAll();
+        if(count($BoolLike) == 0){
+            $BoolLike = false;
+        }else{
+            $BoolLike = true;
+        }
         
-        echo "<br> $nom_user <br> <img class='test' src='$value'><br> follow $nb_follow <br> like $nb_likes";
+        echo "<br> $nom_user <br> <img class='test' src='$value'><br> follow $nb_follow <br> like $nb_likes <br> aimer = $BoolLike";
         }
 
         }
@@ -228,7 +236,7 @@ if(isset($_GET["page"])){
     fermerNav();
 
     include("../view/$page"); 
-}    
+}
 afficheUserGalerie($bdd, 1);
 include("../view/footer.php");
 ?>

@@ -128,6 +128,23 @@ function getLike($bdd, $id_image){
         die("error : ".$e->getMessage());
     }
 }
+
+function getBoolLike($bdd, $id_image, $id_user){
+    try{
+         //On recherche le nombre de like
+    $req = $bdd->prepare(
+        "SELECT * FROM likes WHERE :id_image and :id_user");
+    $req->execute(array(
+        "id_image" => $id_image,
+        "id_user" => $id_user
+    ));
+    return $req;
+    }catch(Exception $e){
+        die("error : ".$e->getMessage());
+    }
+}
+
+
 function getfollow($bdd, $id_user_2){
     try{
          //On recherche le nombre de like
