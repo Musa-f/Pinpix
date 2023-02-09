@@ -1,5 +1,3 @@
-<?php include 'header.php'?>
-
 <div class="container mt-5 mb-5">
 
     <!-- Titre -->
@@ -60,21 +58,6 @@
                                 <button class="btn"><i class="bi bi-trash3-fill"></i></button>
                             </td>
                         </tr> 
-                        <tr>
-                            <td scope="row">3</td>
-                            <td>David</td>
-                            <td class="d-flex justify-content-end">
-                                <select class="form-select form-role" aria-label="Default select example">
-                                    <option selected>Choisir un rôle</option>
-                                    <option value="1">Administrateur</option>
-                                    <option value="2">Utilisateur</option>
-                                </select>
-                                <button class="btn"><i class="bi bi-check-circle"></i></button>
-                            </td>
-                            <td>
-                                <button class="btn"><i class="bi bi-trash3-fill"></i></button>
-                            </td>
-                        </tr> 
                         <!-- FIN -->
                     </tbody>
                 </table>
@@ -100,7 +83,9 @@
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
+
                     <tbody>
+                        
                         <tr>
                             <td scope="row">1</td>
                             <td>Nature</td>
@@ -108,27 +93,10 @@
                                 <button class="btn"><i class="bi bi-trash3-fill"></i></button>
                             </td>
                         </tr> 
-                        <!-- A supprimer -->
-                        <tr>
-                            <td scope="row">2</td>
-                            <td>Légumes</td>
-                            <td>
-                                <button class="btn"><i class="bi bi-trash3-fill"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">3</td>
-                            <td>Animaux</td>
-                            <td>
-                                <button class="btn"><i class="bi bi-trash3-fill"></i></button>
-                            </td>
-                        </tr>
-                        <!-- FIN -->
+                        
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
-
 </div>

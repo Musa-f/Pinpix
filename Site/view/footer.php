@@ -12,15 +12,23 @@
                     </ul>
                 </nav>
             </div>
-        <div>
+            <div>
+                <ul class="reseaux">
+                    <li><a href=""><i class="bi bi-facebook"></i></a></li>
+                    <li><a href=""><i class="bi bi-instagram"></i></a></li>
+                    <li><a href=""><i class="bi bi-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
     </footer>
-    <div>
-        <p id="end">&copy; 2023, PinPix.</p>
+    <div class="d-flex align-items-center justify-content-center p-0">
+        <p>&copy; 2023, PinPix.</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/pinpix/site/assets/js/script.js"></script>
-</body>
+    <script src="fonctions.js"></script>
+    <script src="<?php echo $script ?>"></script>
+    </body>
 
-</html>
-</body>
+    </html>
+    </body>

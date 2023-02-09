@@ -5,7 +5,6 @@
     include("../model/get.php");
     include("../model/connexion_inscription.php");
 
-
     function connexion($bdd){
         if(isset($_POST["mail_connect"]) and isset($_POST["mdp_connect"])){
             $mail = $_POST["mail_connect"];
@@ -22,7 +21,23 @@
                 }else{
                     echo "mdp ou user incorrect";
                 }
-            }    
+            }
+        }elseif(isset($_POST["nom"]) and isset($_POST["mail"]) and isset($_POST["mdp"])){
+            $mail = $_POST["mail"];
+            $mdp = $_POST["mdp"];
+
+            $user = getMDP($bdd, $mail, $mdp);
+            $user = $user->fetch();
+    
+            if(isset($_SESSION["nom"]) != null){
+    
+            }else{
+                if($user != null){
+                    verifConnexion($bdd, $user);
+                }else{
+                    echo "mdp ou user incorrect";
+                }
+            }
         }
     }
 
@@ -36,7 +51,15 @@
             $verifnom = getAllUserByName($bdd, $nom);
             $verifnom = $verifnom -> fetchAll();
             if(count($verifmail) == 0 and count($verifnom) == 0){
-                insertUser($bdd,$nom, $mdp, $mail, 63, 10);
+                insertUser($bdd,$nom, $mdp, $mail, 1, 10);
+                createGal($bdd,$nom, "cice set ma galery");
+                $id_gallery = getIdGal($bdd,$nom);
+                $id_gallery = $id_gallery -> fetch();
+                $id_gallery = $id_gallery["id_gallery"];
+                $id_user = getAllUserByName($bdd, $nom);
+                $id_user = $id_user -> fetch();
+                $id_user = $id_user["id_user"];
+                insertUserGal($bdd, $id_gallery, $id_user);
             }else{
                 echo "l'email ou l'utilisateur existe déjà";
             }
@@ -117,41 +140,74 @@
             echo "vous n'avez pas mis de tag";
         }
     }
+//  On a lié les pages au controleur grâce à un faux formulaire
+if(isset($_GET["page"])){
+    $page = $_GET["page"];
+    $style = $page.".css";
+
+    include("../view/header.php");
+    
+    if(isset($_SESSION["role"])){
+        user();
+        if($_SESSION["role"] == 1){
+            admin();
+        }
+
+    }else{
+        visit();
+    }
+    fermerNav();
+
+    switch($page){
+        case "dashboard":
+            $style = $page;
+            $page.=".php";
+            if(!isset($_SESSION) and $_SESSION["role"] != 1){
+                header("../view/accueil.php");
+            }
+            include("../view/$page");
+            break;
+        case "galerie":
+            $style = $page;
+            $page.=".php";
+            include("../view/$page");
+            break;
+        case "profil":
+            $style = $page;
+            $page.=".php";
+            include("../view/$page");
+            break;
+        case "deconnexion":
+            session_destroy();
+            header("refresh:0;url=controller.php");
+            break;
+        default:
+        $page.=".php";
+        include("../view/$page");
+    }
+}else{
     verifInscription($bdd);
     connexion($bdd);
-    addImage($bdd);
-    afficheUserGalerie($bdd, $_SESSION["id"]);
-    rechercheGalUser($bdd);
+    $page ="accueil";
+    $style = $page;
+    $page.=".php";
+    include("../view/header.php");
+
+    if(isset($_SESSION["role"])){
+        user();
+        if($_SESSION["role"] == 1){
+            admin();
+        }
+
+    }else{
+        visit();
+    }
+    fermerNav();
+
+    include("../view/$page"); 
+}    
+
     
+include("../view/footer.php");
+>>>>>>> 199da3fccd2f74a470bc4589d2820a74e5a35467
 ?>
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/test.css">
-</head>
-<body>
-    <form action="" method="post" enctype="multipart/form-data">
-        <input type="file" name="img" id="img">
-        <input type="submit" value="aaaaaaaa">
-    </form>
-
-    <form action="" method="get">
-    <input type="text" name="recherche" id="recherche">
-    <input type="submit" value="a">
-    </form>
-</body>
-</html>

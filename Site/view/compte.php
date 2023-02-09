@@ -1,6 +1,4 @@
-<?php include 'header-connexion.php' ?>
-
-    <div class="container mt-5 mb-5">
+<div class="container mt-5 mb-5">
         <form action="" method="post">
 
             <!-- Modification compte -->
@@ -43,9 +41,9 @@
                         <input type="password" class="form-control" id="exampleInputPassword1" value="default">
                     </div>
                     <div class="form-group mt-3 align-self-end">
-                        <button type="submit" class="btn btn-account btn-account-validate">Valider</button>
+                        <button type="submit" class="btn btn-account btn-account-cancel">Valider</button>
                         <br>
-                        <button type="submit" class="btn btn-account btn-account-cancel">Annuler</button>
+                        <button type="submit" class="btn btn-secondary btn-account">Annuler</button>
                     </div>
                 </div>
             </div>
@@ -53,7 +51,7 @@
             <div class="row text-end mt-5">
                 <div class="col-10 mt-5">
 
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal">Supprimer mon compte</button>
+                <button type="button" class="btn btn-account-validate" data-bs-toggle="modal" data-bs-target="#myModal">Supprimer mon compte</button>
 
                     <!-- Modal -->
                     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -89,7 +87,6 @@
         </form>
     </div>
 
-<?php include 'footer.php' ?>
 
 
 
