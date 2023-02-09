@@ -10,9 +10,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/all.css">
     <link rel="stylesheet" href="responsive.css">
-    <?php if (isset($style)){
-        echo "<link rel='stylesheet' href='pinpix/site/assets/css/$style.css'>";
-    }
+    <?php 
+        echo "<link rel='stylesheet' href='../assets/css/$style'>";
     ?>
 </head>
 
@@ -37,11 +36,11 @@
                 </div>
             </form>
             <div class="onglets">
-                <li><a href="pinpix/site/controller/controller.php?page=accueil">Accueil</a></li>
-                <li><a href="pinpix/site/controller/controller.php?page=contact">Contact</a></li>
+                <li><a href="controller.php?page=accueil">Accueil</a></li>
+                <li><a href="controller.php?page=contact">Contact</a></li>
     <?php
         function visit(){
-                echo '<li><a href="pinpix/site/controller/controller.php?page=connexion">Connexion</a></li>';
+                echo '<li><a href="controller.php?page=connexion">Connexion</a></li>';
         }
         function user(){
                 echo '<li class="nav-item dropdown">
@@ -49,17 +48,19 @@
                         Menu
                         </a>
                     <ul class="dropdown-menu nav-connected">
-                        <li><a class="dropdown-item" href="pinpix/site/controller/controller.php?page=profil">Profil</a></li>
-                        <li><a class="dropdown-item" href="pinpix/site/controller/controller.php?page=compte">Compte</a></li>
-                        <li><a class="dropdown-item" href="pinpix/site/controller/controller.php?page=follows">Mes follows</a></li>
-                        <li><a class="dropdown-item" href="pinpix/site/controller/controller.php?page=deconnexion">Se déconnecter</a></li>';
+                        <li><a class="dropdown-item" href="controller.php?page=profil">Profil</a></li>
+                        <li><a class="dropdown-item" href="controller.php?page=compte">'.$_SESSION["nom"].'</a></li>
+                        <li><a class="dropdown-item" href="controller.php?page=follows">Mes follows</a></li>
+                        <li><a class="dropdown-item" href="controller.php?page=deconnexion">Se déconnecter</a></li>';
                         function admin(){
-                            echo  '<li><a class="dropdown-item" href="pinpix/site/controller/controller.php?page=dashboard">Dashboard</a></li>';
+                            echo  '<li><a class="dropdown-item" href="controller.php?page=dashboard">Dashboard</a></li>';
                         }      
                         echo '</ul>';
         }
+        function fermerNav(){
+            echo"
+                </div>
+            </nav>
+        </header>";
+        }
     ?>
-                    
-            </div>
-        </nav>
-    </header>

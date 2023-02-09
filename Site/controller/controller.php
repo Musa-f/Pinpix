@@ -4,7 +4,6 @@
     include("../model/insert.php");
     include("../model/get.php");
     include("../model/connexion_inscription.php");
-    include("../view/header.php");
 
     function connexion($bdd){
         if(isset($_POST["mail_connect"]) and isset($_POST["mdp_connect"])){
@@ -143,34 +142,69 @@
     }
 //  On a lié les pages au controleur grâce à un faux formulaire
 if(isset($_GET["page"])){
-    $page = "connexion";
+    $page = $_GET["page"];
+    $style = $page.".css";
+
+    include("../view/header.php");
+    
+    if(isset($_SESSION["role"])){
+        user();
+        if($_SESSION["role"] == 1){
+            admin();
+        }
+
+    }else{
+        visit();
+    }
+    fermerNav();
+
     switch($page){
         case "dashboard":
-            $css = $page;
+            $style = $page;
             $page.=".php";
             if(!isset($_SESSION) and $_SESSION["role"] != 1){
                 header("../view/accueil.php");
             }
             include("../view/$page");
+            break;
         case "galerie":
-            $css = $page;
+            $style = $page;
             $page.=".php";
             include("../view/$page");
+            break;
         case "profil":
-            $css = $page;
+            $style = $page;
             $page.=".php";
             include("../view/$page");
+            break;
+        case "deconnexion":
+            session_destroy();
+            header("refresh:0;url=controller.php");
+            break;
         default:
-        $css = $page;
         $page.=".php";
         include("../view/$page");
     }
 }else{
+    verifInscription($bdd);
+    connexion($bdd);
     $page ="accueil";
-    $css = $page;
+    $style = $page;
     $page.=".php";
+    include("../view/header.php");
+
+    if(isset($_SESSION["role"])){
+        user();
+        if($_SESSION["role"] == 1){
+            admin();
+        }
+
+    }else{
+        visit();
+    }
+    fermerNav();
+
     include("../view/$page"); 
 }    
-    
 include("../view/footer.php");
 ?>
