@@ -1,6 +1,4 @@
-<?php include 'header.php'?>
-
-    <div class="container mt-5 mb-5">
+<div class="container mt-5 mb-5">
         <div class="row justify-content-center">
             <div class="col-10">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -114,5 +112,4 @@
 
 <?php 
     $script = "/pinpix/site/assets/js/research-tab.js";
-    include 'footer.php'
 ?>

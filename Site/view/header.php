@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/all.css">
     <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="<?php echo $style ?>.css">
 </head>
 
 <body>
@@ -32,11 +33,32 @@
                     </div>
                 </div>
             </form>
-
             <div class="onglets">
-                <a href="index.php">Accueil</a>
-                <a href="header/contact.php">Contact</a>
-                <a href="connexion.php">Connexion</a>
+    <?php
+        function visit(){
+                echo '<a href="index.php">Accueil</a>
+                <a href="controller.php?page=contact">Contact</a>
+                <a href="connexion.php">Connexion</a>';
+        }
+        function user(){
+                echo '<li><a href="index.php">Accueil</a></li>
+                <li><a href="header/contact.php">Contact</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle menu-focus" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Menu
+                    </a>
+                    <ul class="dropdown-menu nav-connected">
+                        <li><a class="dropdown-item" href="#">Profil</a></li>
+                        <li><a class="dropdown-item" href="#">Compte</a></li>
+                        <li><a class="dropdown-item" href="#">Mes follows</a></li>
+                        <li><a class="dropdown-item" href="#">Se déconnecter</a></li>';
+        }
+        function admin(){
+                       echo  '<li><a class="dropdown-item" href="#">Dashboard</a></li>';
+        }
+        ?>
+                    </ul>
+                </li>
             </div>
         </nav>
     </header>

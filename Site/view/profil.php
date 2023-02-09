@@ -1,5 +1,3 @@
-<?php include "header-connexion.php" ?>
-
 <div class="container mt-5">
 
     <div class="row justify-content-center">
@@ -229,5 +227,4 @@
 
 <?php
     $script = "/pinpix/site/assets/js/follow-tab.js";
-    include "footer.php" 
 ?>

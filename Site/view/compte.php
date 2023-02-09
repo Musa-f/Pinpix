@@ -1,6 +1,4 @@
-<?php include 'header-connexion.php' ?>
-
-    <div class="container mt-5 mb-5">
+<div class="container mt-5 mb-5">
         <form action="" method="post">
 
             <!-- Modification compte -->
@@ -89,7 +87,6 @@
         </form>
     </div>
 
-<?php include 'footer.php' ?>
 
 
 

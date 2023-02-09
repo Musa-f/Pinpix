@@ -1,5 +1,3 @@
-<?php include("header-connexion.php") ?>
-
 <div class="container mt-5 mb-5">
     <div class="row justify-content-between align-items-center">
         <div class="col">
@@ -111,7 +109,6 @@
 
 <?php 
     $script = "/pinpix/site/assets/js/checkbox.js";
-    include("footer.php") 
 ?>
 
 

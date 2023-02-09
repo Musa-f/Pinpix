@@ -1,5 +1,3 @@
-<?php include("header-connexion.php") ?>
-
 <div class="container mt-5 mb-5">
     <div class="row justify-content-between align-items-center">
         <div class="col"><h2 class="gallery-title text-center">MES FOLLOWS</h2></div>
@@ -123,5 +121,3 @@
             </div>
         </div>
     </div>
-
-<?php include("footer.php") ?>
