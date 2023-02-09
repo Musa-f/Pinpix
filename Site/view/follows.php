@@ -9,6 +9,7 @@
             <div class="gallery-images">
                 
                 <div class="box d-flex flex-column">
+                    
                     <div class="d-flex justify-content-between">
                         <p>@username <i class="bi bi-heart-fill"></i></p>
                         <p>189<i class="bi bi-hand-thumbs-up"></i></p>

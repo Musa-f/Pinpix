@@ -36,7 +36,7 @@
     <div class="row mt-5">
         <div class="col-12">
             <div class="element mb-5">
-                <h2 class="profil-gallery-title"><a href="" class="text-dark">Galerie</a></h2>
+                <h2 class="profil-gallery-title"><a href="pinpix/site/controller/controller.php?page=galerie" class="text-dark">Galerie</a></h2>
 
                 <div class="top"></div>
                 <div class="left"></div>
@@ -45,51 +45,14 @@
                 
                 <div class="gallery-images">
                     
+                    <!-- -------------APPEL PHP------------- -->
                     <div class="box d-flex flex-column">
                         <div class="d-flex justify-content-end">
                             <p>189<i class="bi bi-hand-thumbs-up-fill"></i></p>
                         </div>
                         <img src="https://fastly.picsum.photos/id/641/200/200.jpg?hmac=9pd71nRRRsT7TXf0zn0hQ6tW6VQnQ-UtL1JXDhJZB8E" alt="">
                     </div>
-
-                    <!-- Divs à supprimer plus tard -->
-                    <div class="box d-flex flex-column">
-                        <div class="d-flex justify-content-end">
-                            <p>189<i class="bi bi-hand-thumbs-up"></i></p>
-                        </div>
-                        <img src="https://fastly.picsum.photos/id/605/200/200.jpg?hmac=aAxC3x4fmu7RXhLH-1idijrAUvlZVEwlUqjzKR80YWo" alt="">
-                    </div>
-                    <div class="box d-flex flex-column">
-                        <div class="d-flex justify-content-end">
-                            <p>189<i class="bi bi-hand-thumbs-up"></i></p>
-                        </div>
-                        <img src="https://fastly.picsum.photos/id/790/200/200.jpg?hmac=Y1d81XFNx8LJhlNsiwDoDgIn4mF3SK9nTdIVqkkHS9I" alt="">
-                    </div>
-                    <div class="box d-flex flex-column">
-                        <div class="d-flex justify-content-end">
-                            <p>189<i class="bi bi-hand-thumbs-up-fill"></i></p>
-                        </div>
-                        <img src="https://fastly.picsum.photos/id/334/200/200.jpg?hmac=Q9rDA3ngheQsAB7HoLSjpzYS0kqelfZIJBGDkW-4wgk" alt="">
-                    </div>
-                    <div class="box d-flex flex-column">
-                        <div class="d-flex justify-content-end">
-                            <p>189<i class="bi bi-hand-thumbs-up"></i></p>
-                        </div>
-                        <img src="https://fastly.picsum.photos/id/141/200/200.jpg?hmac=cy5VCF6f8Mq7cum6d-R7m7mbrGC0wgUzI4UpSX_qkIk" alt="">
-                    </div>
-                    <div class="box d-flex flex-column">
-                        <div class="d-flex justify-content-end">
-                            <p>189<i class="bi bi-hand-thumbs-up"></i></p>
-                        </div>
-                        <img src="https://fastly.picsum.photos/id/254/200/200.jpg?hmac=wM9u9N0tgdWKFIr8MxBLr8rLoV0JjUUKLk32XFV8agQ" alt="">
-                    </div>
-                    <div class="box d-flex flex-column">
-                        <div class="d-flex justify-content-end">
-                            <p>189<i class="bi bi-hand-thumbs-up-fill"></i></p>
-                        </div>
-                        <img src="https://fastly.picsum.photos/id/738/200/200.jpg?hmac=s1pXxIw4TdDLyUY2RRVeDyhLPUF2xW3AFjdzjVsE6zc" alt="">
-                    </div>
-                    <!-- Fin des divs à supprimer -->
+                    <!-- -------------FIN------------- -->
 
                 </div>
 

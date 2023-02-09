@@ -83,7 +83,9 @@
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
+
                     <tbody>
+                        
                         <tr>
                             <td scope="row">1</td>
                             <td>Nature</td>
@@ -91,27 +93,10 @@
                                 <button class="btn"><i class="bi bi-trash3-fill"></i></button>
                             </td>
                         </tr> 
-                        <!-- A supprimer -->
-                        <tr>
-                            <td scope="row">2</td>
-                            <td>Légumes</td>
-                            <td>
-                                <button class="btn"><i class="bi bi-trash3-fill"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row">3</td>
-                            <td>Animaux</td>
-                            <td>
-                                <button class="btn"><i class="bi bi-trash3-fill"></i></button>
-                            </td>
-                        </tr>
-                        <!-- FIN -->
+                        
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
-
 </div>

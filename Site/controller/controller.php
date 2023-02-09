@@ -5,9 +5,6 @@
     include("../model/get.php");
     include("../model/connexion_inscription.php");
     include("../view/header.php");
-    include("../view/footer.php");
-
-    // TODEL3
 
     function connexion($bdd){
         if(isset($_POST["mail_connect"]) and isset($_POST["mdp_connect"])){
@@ -148,33 +145,12 @@
 if(isset($_GET["page"])){
     $page = "connexion";
     switch($page){
-        case "connexion":
-            $css = $page;
-            $page.=".php";
-            include("../view/$page");
-        case "accueil":
-            $css = $page;
-            $page.=".php";
-            include("../view/$page");
-        case "inscription":
-            $css = $page;
-            $page.=".php";
-            include("../view/$page");
-        case "connexion":
-            $css = $page;
-            $page.=".php";
-            include("../view/$page");
-        case "contact":
-            $css = $page;
-            $page.=".php";
-            include("../view/$page");
         case "dashboard":
             $css = $page;
             $page.=".php";
-            include("../view/$page");
-        case "follows":
-            $css = $page;
-            $page.=".php";
+            if(!isset($_SESSION) and $_SESSION["role"] != 1){
+                header("../view/accueil.php");
+            }
             include("../view/$page");
         case "galerie":
             $css = $page;
@@ -184,17 +160,21 @@ if(isset($_GET["page"])){
             $css = $page;
             $page.=".php";
             include("../view/$page");
-        case "recherche":
-            $css = $page;
-            $page.=".php";
-            include("../view/$page");
+        default:
+        $css = $page;
+        $page.=".php";
+        include("../view/$page");
     }
 }else{
-    $page.="accueil";
+    $page ="accueil";
     $css = $page;
     $page.=".php";
     include("../view/$page"); 
 }    
     
+<<<<<<< HEAD
     
+=======
+include("../view/footer.php");
+>>>>>>> 199da3fccd2f74a470bc4589d2820a74e5a35467
 ?>
