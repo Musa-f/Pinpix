@@ -151,5 +151,3 @@
             $page.=".php";
             include("../view/$page");
     }
-    
-?>
