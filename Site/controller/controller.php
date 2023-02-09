@@ -152,11 +152,36 @@
 
 
 
+<a href="controller.php?page=index">accueil</a>
+$style = 
+include("../view/header.php");
+$page = $_GET['page'].".php";
+include("../view/$page");
+include("../view/footer.php");
+
+switch($_session["id"])
+ 0 : 
+ admin();
+
+ 10 :
+ user();
+
+ default :
+ visit();
 
 
 
-
-
+switch ($page)
+    "dashboard":
+    $page .= "php";
+    if(connecter){
+        include("../view/header.php");
+        include("../view/$page");
+        include("../view/$footer");
+    }else{
+        header("controller.php?page=index");
+    }
+   
 
 
 <!DOCTYPE html>
