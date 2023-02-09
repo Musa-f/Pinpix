@@ -207,4 +207,5 @@ if(isset($_GET["page"])){
     include("../view/$page"); 
 }    
 include("../view/footer.php");
+>>>>>>> 199da3fccd2f74a470bc4589d2820a74e5a35467
 ?>
