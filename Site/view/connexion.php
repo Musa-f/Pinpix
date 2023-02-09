@@ -1,7 +1,3 @@
-
-   <?php include('header.php');?>
-
-
 <div class="container mt-5 mb-5">
   <div class="row justify-content-center">
     <div class="col-6">
@@ -19,9 +15,9 @@
           <div class="form-group mt-4 mb-4 justify-content-center"></div>
           <button type="submit" class="btn btn-inscription text-white">CONFIRMER</button>
         </div>
-        </form>
+      </form>
+      
     </div>
   </div>
 </div>
 
-<?php include('footer.php');?> 

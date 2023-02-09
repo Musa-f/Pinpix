@@ -58,21 +58,6 @@
                                 <button class="btn"><i class="bi bi-trash3-fill"></i></button>
                             </td>
                         </tr> 
-                        <tr>
-                            <td scope="row">3</td>
-                            <td>David</td>
-                            <td class="d-flex justify-content-end">
-                                <select class="form-select form-role" aria-label="Default select example">
-                                    <option selected>Choisir un rôle</option>
-                                    <option value="1">Administrateur</option>
-                                    <option value="2">Utilisateur</option>
-                                </select>
-                                <button class="btn"><i class="bi bi-check-circle"></i></button>
-                            </td>
-                            <td>
-                                <button class="btn"><i class="bi bi-trash3-fill"></i></button>
-                            </td>
-                        </tr> 
                         <!-- FIN -->
                     </tbody>
                 </table>
