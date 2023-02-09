@@ -37,31 +37,29 @@
                 </div>
             </form>
             <div class="onglets">
+                <li><a href="pinpix/site/controller/controller.php?page=accueil">Accueil</a></li>
+                <li><a href="pinpix/site/controller/controller.php?page=contact">Contact</a></li>
     <?php
         function visit(){
-                echo '<a href="index.php">Accueil</a>
-                <a href="controller.php?page=contact">Contact</a>
-                <a href="connexion.php">Connexion</a>';
+                echo '<li><a href="pinpix/site/controller/controller.php?page=connexion">Connexion</a></li>';
         }
         function user(){
-                echo '<li><a href="index.php">Accueil</a></li>
-                <li><a href="header/contact.php">Contact</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle menu-focus" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                echo '<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle menu-focus" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Menu
-                    </a>
+                        </a>
                     <ul class="dropdown-menu nav-connected">
-                        <li><a class="dropdown-item" href="#">Profil</a></li>
-                        <li><a class="dropdown-item" href="#">Compte</a></li>
-                        <li><a class="dropdown-item" href="#">Mes follows</a></li>
-                        <li><a class="dropdown-item" href="#">Se déconnecter</a></li>';
+                        <li><a class="dropdown-item" href="pinpix/site/controller/controller.php?page=profil">Profil</a></li>
+                        <li><a class="dropdown-item" href="pinpix/site/controller/controller.php?page=compte">Compte</a></li>
+                        <li><a class="dropdown-item" href="pinpix/site/controller/controller.php?page=follows">Mes follows</a></li>
+                        <li><a class="dropdown-item" href="pinpix/site/controller/controller.php?page=deconnexion">Se déconnecter</a></li>';
+                        function admin(){
+                            echo  '<li><a class="dropdown-item" href="pinpix/site/controller/controller.php?page=dashboard">Dashboard</a></li>';
+                        }      
+                        echo '</ul>';
         }
-        function admin(){
-                       echo  '<li><a class="dropdown-item" href="#">Dashboard</a></li>';
-        }
-        ?>
-                    </ul>
-                </li>
+    ?>
+                    
             </div>
         </nav>
     </header>
