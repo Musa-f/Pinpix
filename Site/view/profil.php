@@ -12,14 +12,18 @@
                     <h2>Username</h2>
                 </div>
                 <div class="col-1 d-flex justify-content-center align-items-center">
-                    <h2><i class="bi bi-heart align-self-center"></i></h2>
+                    <h2><i class="bi bi-suit-heart align-self-center"></i></h2>
                 </div>
             </div>
             <div class="row">
-                <div class="col-5 fw-bold">14 Follows</div>
+                <div class="col-5 fw-bold">
+                    <a href="" class="color-dark a-hover" id="link-follows" data-bs-toggle="modal" data-bs-target="#modal-follows-followers">14 Follows</a>
+                </div>
             </div>
             <div class="row">
-                <div class="col-5 fw-bold">56 Followers</div>
+                <div class="col-5 fw-bold">
+                    <a href="" class="color-dark a-hover" data-bs-toggle="modal" data-bs-target="#modal-follows-followers">56 Followers</a>
+                </div>
             </div>
             <div class="row">
                 <div class="col mt-4">
@@ -93,7 +97,7 @@
 
 
                 <!-- Button modal -->
-                <button type="button" class="add-image" data-bs-toggle="modal" data-bs-target="#myModal">
+                <button type="button" class="add-image" data-bs-toggle="modal" data-bs-target="#modal-add-image">
                     <i class="bi bi-plus-square-fill"></i>
                 </button>
 
@@ -102,8 +106,8 @@
     </div>
 </div>
 
-<!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal add image -->
+    <div class="modal fade" id="modal-add-image" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -137,7 +141,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancel_image">Annuler</button>
                         <button type="submit" name="submit" class="btn" id="submit_image">Enregistrer</button>
                     </div>
                 </form>
@@ -145,4 +149,85 @@
         </div>
     </div>
 
-<?php include "footer.php" ?>
+    <!-- Modal display follows and followers  -->
+    <div class="modal fade" id="modal-follows-followers" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                    <ul class="nav nav-pills mb-3 justify-content-around" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-follows-tab" data-toggle="pill" href="#pills-follows" role="tab" aria-controls="pills-home" aria-selected="true">Follows</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-followers-tab" data-toggle="pill" href="#pills-followers" role="tab" aria-controls="pills-profile" aria-selected="false">Followers</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-follows" role="tabpanel">
+                            <ul class="list-unstyled mt-4">
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <a href="" class="color-dark a-hover">Follow1</a>
+                                    <i class="bi bi-suit-heart"></i>
+                                    <!-- Si la personne est suivie, changer icône ->
+                                    <i class="bi bi-suit-heart-fill"></i> -->
+                                </li>
+                                <hr>
+                                <!-- A EFFACER PLUS TARD -->
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <a href="" class="color-dark a-hover">Follow2</a>
+                                    <i class="bi bi-suit-heart"></i>
+                                </li>
+                                <hr>
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <a href="" class="color-dark a-hover">Follow3</a>
+                                    <i class="bi bi-suit-heart"></i>
+                                </li>
+                                <hr>
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <a href="" class="color-dark a-hover">Follow4</a>
+                                    <i class="bi bi-suit-heart"></i>
+                                </li>
+                                <hr>
+                                <!-- FIN -->
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="pills-followers" role="tabpanel">
+                            <ul class="list-unstyled mt-4">
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <a href="" class="color-dark a-hover">Follower1</a>
+                                    <i class="bi bi-suit-heart"></i>
+                                    <!-- Si la personne est suivie, changer icône ->
+                                    <i class="bi bi-suit-heart-fill"></i> -->
+                                </li>
+                                <hr>
+                                <!-- A EFFACER PLUS TARD -->
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <a href="" class="color-dark a-hover">Follower2</a>
+                                    <i class="bi bi-suit-heart"></i>
+                                </li>
+                                <hr>
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <a href="" class="color-dark a-hover">Follower3</a>
+                                    <i class="bi bi-suit-heart"></i>
+                                </li>
+                                <hr>
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <a href="" class="color-dark a-hover">Follower4</a>
+                                    <i class="bi bi-suit-heart"></i>
+                                </li>
+                                <hr>    
+                                <!-- FIN -->
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php
+    $script = "/pinpix/site/assets/js/follow-tab.js";
+    include "footer.php" 
+?>

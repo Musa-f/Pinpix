@@ -5,6 +5,7 @@
     include("../model/get.php");
     include("../model/connexion_inscription.php");
 
+    // TODEL3
 
     function connexion($bdd){
         if(isset($_POST["mail_connect"]) and isset($_POST["mdp_connect"])){

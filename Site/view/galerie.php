@@ -6,11 +6,9 @@
             <button class="filtre"><i class="bi bi-calendar-event"></i></button>
             <button class="filtre m-3"><i class="bi bi-star-fill"></i></button>
         </div>
-        <div class="col"><h2 class="gallery-title text-center">GALERIE</h2></div>
+        <div class="col"><h2 class="titles-pages text-center">GALERIE</h2></div>
         <div class="col text-end">
-            <button class="filtre">
-                <i class="bi bi-trash3-fill"></i>
-            </button>
+            <button class="btn btn-secondary" id="btn-edition">Edition</button>
         </div>
     </div>
 
@@ -22,17 +20,34 @@
                         <div class="d-flex justify-content-end">
                             <p>189<i class="bi bi-hand-thumbs-up-fill"></i></p>
                         </div>
+                        <div class="del-image" id="del-image-1">
+                            <button class="btn-del-image">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+                        </div>
                         <img src="https://fastly.picsum.photos/id/641/200/200.jpg?hmac=9pd71nRRRsT7TXf0zn0hQ6tW6VQnQ-UtL1JXDhJZB8E" alt="" data-bs-toggle="modal" data-bs-target="#picture">
                     </div>
+
+                    <!-- A SUPPRIMER PLUS TARD -->
                     <div class="box d-flex flex-column">
                         <div class="d-flex justify-content-end">
                             <p>189<i class="bi bi-hand-thumbs-up-fill"></i></p>
+                        </div>
+                        <div class="del-image" id="del-image-1">
+                            <button class="btn-del-image"> 
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
                         </div>
                         <img src="https://fastly.picsum.photos/id/641/200/200.jpg?hmac=9pd71nRRRsT7TXf0zn0hQ6tW6VQnQ-UtL1JXDhJZB8E" alt="">
                     </div>
                     <div class="box d-flex flex-column">
                         <div class="d-flex justify-content-end">
                             <p>189<i class="bi bi-hand-thumbs-up-fill"></i></p>
+                        </div>
+                        <div class="del-image" id="del-image-1">
+                            <button class="btn-del-image">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
                         </div>
                         <img src="https://fastly.picsum.photos/id/641/200/200.jpg?hmac=9pd71nRRRsT7TXf0zn0hQ6tW6VQnQ-UtL1JXDhJZB8E" alt="">
                     </div>
@@ -94,7 +109,10 @@
         </div>
     </div>
 
-<?php include("footer.php") ?>
+<?php 
+    $script = "/pinpix/site/assets/js/checkbox.js";
+    include("footer.php") 
+?>
 
 
 

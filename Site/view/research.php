@@ -112,4 +112,7 @@
         </div>
     </div>
 
-<?php include 'footer.php'?>
+<?php 
+    $script = "/pinpix/site/assets/js/research-tab.js";
+    include 'footer.php'
+?>
