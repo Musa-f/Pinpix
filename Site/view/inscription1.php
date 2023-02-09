@@ -22,7 +22,7 @@ if (empty($name) || strlen($name) < 3){
 
 if (empty($email) || filter_var($email, FILTER_VALIDATE_EMAIL)){
   array_push($errors, 'L\'email n\est pas une adresse mail valide.');
-
+}
 ?>
 <?php include('header.php');?>
 
