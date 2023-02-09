@@ -12,7 +12,14 @@
                     </ul>
                 </nav>
             </div>
-        <div>
+            <div>
+                <ul>
+                    <li><a href=""><i class="bi bi-facebook"></i></a></li>
+                    <li><a href=""><i class="bi bi-instagram"></i></a></li>
+                    <li><a href=""><i class="bi bi-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
     </footer>
     <div class="d-flex align-items-center justify-content-center p-0">
         <p>&copy; 2023, PinPix.</p>
@@ -20,7 +27,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="<?php echo $script ?>"></script>
-</body>
+    </body>
 
-</html>
-</body>
+    </html>
+    </body>

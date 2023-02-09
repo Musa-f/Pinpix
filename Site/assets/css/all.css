@@ -10,6 +10,7 @@
 */
 /* START PAGE CODE */
 @import url("https://fonts.googleapis.com/css2?family=Limelight&display=swap");
+
 *,
 ::before,
 ::after {
@@ -172,12 +173,17 @@ footer .services {
   flex-wrap: wrap;
 }
 
-footer .services .service {
+footer .services {
   margin-right: 30px;
+  justify-content: space-between;
 }
 
-footer .services .service p {
-  max-width: 250px;
+.services div ul {
+  list-style-type: none;
+}
+
+.services div ul li a:hover {
+  color: #000;
 }
 
 #end {
@@ -205,6 +211,7 @@ footer .services .service p {
 .profil-gallery-title::after {
   content: "";
 }
+
 .profil-gallery-title:hover::after {
   content: " ⟶";
   color: #212529;
@@ -458,4 +465,6 @@ form.form-rectangle {
   border: none;
   background: none;
   padding: 10px;
-}/*# sourceMappingURL=all.css.map */
+}
+
+/*# sourceMappingURL=all.css.map */
