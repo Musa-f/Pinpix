@@ -7,8 +7,6 @@
     include("../view/header.php");
     include("../view/footer.php");
 
-    // TODEL3
-
     function connexion($bdd){
         if(isset($_POST["mail_connect"]) and isset($_POST["mdp_connect"])){
             $mail = $_POST["mail_connect"];
