@@ -4,6 +4,8 @@
     include("../model/insert.php");
     include("../model/get.php");
     include("../model/connexion_inscription.php");
+    include("../view/header.php");
+    include("../view/footer.php");
 
 
     function connexion($bdd){
@@ -141,41 +143,12 @@
             echo "vous n'avez pas mis de tag";
         }
     }
-    verifInscription($bdd);
-    connexion($bdd);
-    addImage($bdd);
-    afficheUserGalerie($bdd, $_SESSION["id"]);
-    rechercheGalUser($bdd);
+    $page = "connexion";
+    switch($page){
+        case "connexion":
+            $css = $page;
+            $page.=".php";
+            include("../view/$page");
+    }
     
 ?>
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/test.css">
-</head>
-<body>
-    <form action="" method="post" enctype="multipart/form-data">
-        <input type="file" name="img" id="img">
-        <input type="submit" value="aaaaaaaa">
-    </form>
-
-    <form action="" method="get">
-    <input type="text" name="recherche" id="recherche">
-    <input type="submit" value="a">
-    </form>
-</body>
-</html>
