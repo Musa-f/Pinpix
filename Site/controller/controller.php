@@ -180,10 +180,6 @@ if(isset($_GET["page"])){
             $css = $page;
             $page.=".php";
             include("../view/$page");
-        case "homepage":
-            $css = $page;
-            $page.=".php";
-            include("../view/$page");
         case "profil":
             $css = $page;
             $page.=".php";
@@ -194,12 +190,11 @@ if(isset($_GET["page"])){
             include("../view/$page");
     }
 }else{
-    $page.="index";
+    $page.="accueil";
     $css = $page;
     $page.=".php";
     include("../view/$page"); 
 }    
-    
     
     
 ?>
