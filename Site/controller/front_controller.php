@@ -1,7 +1,7 @@
 <?php 
 include "controller.php";
 
-$displayImgAll = displayImgAll();
+$displayImgAll = afficheUserGalerie();
 $displayImgAll -> fetchAll();
 function displayImgAll($displayImgAll){ 
     foreach($displayImgAll as $displayImg){
