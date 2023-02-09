@@ -10,6 +10,7 @@
 */
 /* START PAGE CODE */
 @import url("https://fonts.googleapis.com/css2?family=Limelight&display=swap");
+
 *,
 ::before,
 ::after {
@@ -29,9 +30,21 @@ a {
 }
 
 .titles-pages {
-  font-size: 2.3em;
+  font-size: 2.5em;
   color: #733a39;
-  font-weight: 600;
+  font-weight: 700;
+}
+
+.color-bordeau {
+  color: #62302f;
+}
+
+.color-dark {
+  color: #212529;
+}
+
+.a-hover:hover {
+  color: #733a39;
 }
 
 /* HEADER ALL */
@@ -81,7 +94,8 @@ nav {
   font-style: italic;
 }
 
-nav ul, nav li {
+nav ul,
+nav li {
   list-style-type: none;
 }
 
@@ -159,12 +173,17 @@ footer .services {
   flex-wrap: wrap;
 }
 
-footer .services .service {
+footer .services {
   margin-right: 30px;
+  justify-content: space-between;
 }
 
-footer .services .service p {
-  max-width: 250px;
+.services div ul {
+  list-style-type: none;
+}
+
+.services div ul li a:hover {
+  color: #000;
 }
 
 #end {
@@ -192,6 +211,7 @@ footer .services .service p {
 .profil-gallery-title::after {
   content: "";
 }
+
 .profil-gallery-title:hover::after {
   content: " ⟶";
   color: #212529;
@@ -268,8 +288,9 @@ footer .services .service p {
 }
 
 #submit_image {
-  background-color: #733a39;
-  color: #fff;
+  background-color: none;
+  border: #62302f 2px solid;
+  color: #62302f;
 }
 
 /*-------------------------------------- GALERIE.PHP -------------------------------------- */
@@ -364,7 +385,9 @@ li.found-user a {
   width: 200px;
 }
 
-table, tr, td {
+table,
+tr,
+td {
   border: none;
 }
 
@@ -376,7 +399,8 @@ tbody tr td {
   border-bottom: rgb(166, 163, 163) 1px solid;
 }
 
-.research-account, .research-tags {
+.research-account,
+.research-tags {
   margin-left: 10px;
   font-size: 1.6em;
 }
@@ -428,4 +452,19 @@ form.form-rectangle {
 
 .form-group {
   color: #fff;
-}/*# sourceMappingURL=all.css.map */
+}
+
+/*Bouton select*/
+.del-image {
+  visibility: hidden;
+  position: relative;
+}
+
+.btn-del-image {
+  position: absolute;
+  border: none;
+  background: none;
+  padding: 10px;
+}
+
+/*# sourceMappingURL=all.css.map */

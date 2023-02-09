@@ -115,4 +115,17 @@ function getLink($bdd, $id_image, $id_gallery){
     }
 }
 
-?>
+function getLike($bdd, $id_image, $id_user){
+    try{
+         //On recherche le nombre de like
+    $req = $bdd->prepare(
+        "SELECT COUNT(*) FROM likes WHERE :id_image");
+    $req->execute(array(
+        "id_image" => $id_image,
+        "id_user" => $id_user
+    ));
+    return $req;
+    }catch(Exception $e){
+        die("error : ".$e->getMessage());
+    }
+}
