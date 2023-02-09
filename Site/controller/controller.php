@@ -171,6 +171,7 @@ if(isset($_GET["page"])){
     $page.=".php";
     include("../view/$page"); 
 }    
+
     
 include("../view/footer.php");
 ?>
