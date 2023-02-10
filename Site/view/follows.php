@@ -10,7 +10,6 @@
 
                 
                 <?php 
-                
                     displayImgAll($username, $nb_likes, $url_img);
                 ?>
                 

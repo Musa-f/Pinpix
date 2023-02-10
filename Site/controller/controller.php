@@ -169,6 +169,8 @@
         }
         return $resultat;
     }
+    $test = afficheUserGalerie($bdd, 2);
+    print_r($test);
 
     function rechercheGalUser($bdd){
         //on vérifie si l'input à été envoyé 
