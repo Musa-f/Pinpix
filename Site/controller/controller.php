@@ -256,4 +256,3 @@ if(isset($_GET["page"])){
 }
 
 include("../view/footer.php");
-?>

@@ -1,4 +1,5 @@
 <?php
+//Variable de SESSION pour faire des verifications de connexion
 function verifConnexion($bdd, $user){
     $data = getAllUserById($bdd, $user["id_user"]);
     $data = $data ->fetch();
