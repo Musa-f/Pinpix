@@ -4,11 +4,11 @@ include "controller.php";
 /*$displayImgAll = afficheUserGalerie($bdd, $id_user);
 $displayImgAll -> fetchAll();
 */
-
+$id_user = getIdUser();
 $tab = afficheUserGalerie($bdd, $id_user);
 $tab['nom_user'];
 
-/*function displayImgAll($displayImgAll){ 
+function displayImgAll($displayImgAll){ 
     foreach($displayImgAll as $displayImg){
     echo " 
         <div class='box d-flex flex-column'>
@@ -30,4 +30,3 @@ $tab['nom_user'];
     </div>"; 
     }
 }
-*/
