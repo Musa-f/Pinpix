@@ -50,15 +50,13 @@ function insertGal($bdd,$id_image,$id_gallery){
 
 function createGal($bdd,$name_gallery, $description_gallery){
     try{
-        //On lie le nom de la gallery a sa description
        $req = $bdd->prepare(
-           "INSERT INTO gallery(name_gallery, description_gallery) VALUES
-           (:name_gallery, :description_gallery)"
+           "INSERT INTO gallery(name_gallery) VALUES
+           (:name_gallery)"
        );
 
        $req->execute(array(
            "name_gallery" => $name_gallery,
-           "description_gallery" => $description_gallery
        ));
 
        $req->closeCursor();
@@ -68,7 +66,6 @@ function createGal($bdd,$name_gallery, $description_gallery){
 }
 function insertUserGal($bdd,$id_gallery, $id_user){
     try{
-        //On lie l'ID de gallery avec l'iD de l'utilisateur
        $req = $bdd->prepare(
            "INSERT INTO give(id_gallery, id_user) VALUES 
            (:id_gallery,:id_user)"
@@ -120,3 +117,4 @@ function insertFollow($bdd,$id_user_1,$id_user_2){
         die("error : ".$e->getMessage());
     }
 }
+?>
