@@ -8,10 +8,10 @@ function displayImgAll($displayImgAll){
     echo " 
         <div class='box d-flex flex-column'>
         <div class='d-flex justify-content-between'>
-            <p>".$displayImg['username']."<i class='bi bi-heart-fill'></i></p>
-            <p>".$displayImg['likes']."<i class='bi bi-hand-thumbs-up'></i></p>
+            <p>".$displayImg['username']."<button onclick='addFollower(this)'><i class='bi bi-heart-fill'></i></button></p>
+            <p>".$displayImg['likes']."<button onclick='addLike()'><i class='bi bi-hand-thumbs-up'></i></button></p>
         </div>
-        <img src='".$displayImg['url_image']."' alt='' data-bs-toggle='modal' data-bs-target='#picture'>
+        <img src='".$displayImg['url_image']."' alt='' data-bs-toggle='modal' data-bs-target='#picture' id='image'>
     </div>"; 
     }
 }
