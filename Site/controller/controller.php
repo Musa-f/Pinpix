@@ -169,6 +169,8 @@
         }
         return $resultat;
     }
+    $test = afficheUserGalerie($bdd, 2);
+    print_r($test);
 
     function afficheTagGalerie($bdd){
         if(isset($_POST["recherche"])){
@@ -270,4 +272,3 @@ if(isset($_GET["page"])){
 }
 
 include("../view/footer.php");
-?>

@@ -130,7 +130,7 @@ function getLike($bdd, $id_image){
 
 function getBoolLike($bdd, $id_image, $id_user){
     try{
-         //On recherche le nombre de like
+         //On recherche si l'utilisateur a liker (retourne un bool)
     $req = $bdd->prepare(
         "SELECT COUNT(`id_user`)FROM `likes` WHERE id_image = :id_image AND id_user = :id_user");
     $req->execute(array(
@@ -146,7 +146,7 @@ function getBoolLike($bdd, $id_image, $id_user){
 
 function getfollow($bdd, $id_user_2){
     try{
-         //On recherche le nombre de like
+         //On recherche le nombre de follow
     $req = $bdd->prepare(
         "SELECT * FROM follow WHERE :id_user_2");
     $req->execute(array(
@@ -160,7 +160,7 @@ function getfollow($bdd, $id_user_2){
 
 function getBoolfollow($bdd, $id_user_1, $id_user_2){
     try{
-         //On recherche le nombre de like
+         //On recherche si l'utilisateur 1 a follow l'utilisateur 2 (retourne un bool)
     $req = $bdd->prepare(
         "SELECT * FROM follow WHERE id_user_1 = :id_user_1 and id_user_2 = :id_user_2");
     $req->execute(array(
