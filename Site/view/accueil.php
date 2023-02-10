@@ -9,6 +9,28 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col">
+            <div class="gallery-images">
+
+                    <!-- -------------APPEL PHP------------- -->
+                    <div class="box d-flex flex-column">
+                        <div class="d-flex justify-content-end">
+                            <p>189<i class="bi bi-hand-thumbs-up-fill"></i></p>
+                        </div>
+                        <div class="del-image" id="del-image-1">
+                            <button class="btn-del-image">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+                        </div>
+                        <img src="https://fastly.picsum.photos/id/641/200/200.jpg?hmac=9pd71nRRRsT7TXf0zn0hQ6tW6VQnQ-UtL1JXDhJZB8E" alt="" data-bs-toggle="modal" data-bs-target="#picture">
+                    </div>
+                    <!-- -------------FIN------------- -->
+
+            </div>
+        </div>
+    </div>
+    
     <div class="row justify-content-center">
         <div class="col">
             <div class="gallery-images">
@@ -16,8 +38,7 @@
                     
                     displayImgAll($bdd, $img);
                     $img = [];
-                    funv
-                    
+
                 ?>
                     
             </div>
