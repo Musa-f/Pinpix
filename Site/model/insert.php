@@ -51,13 +51,12 @@ function insertGal($bdd,$id_image,$id_gallery){
 function createGal($bdd,$name_gallery, $description_gallery){
     try{
        $req = $bdd->prepare(
-           "INSERT INTO gallery(name_gallery, description_gallery) VALUES
-           (:name_gallery, :description_gallery)"
+           "INSERT INTO gallery(name_gallery) VALUES
+           (:name_gallery)"
        );
 
        $req->execute(array(
            "name_gallery" => $name_gallery,
-           "description_gallery" => $description_gallery
        ));
 
        $req->closeCursor();
