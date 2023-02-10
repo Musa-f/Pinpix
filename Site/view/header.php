@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/all.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
-    <?php 
-        echo "<link rel='stylesheet' href='../assets/css/$style'>";
+    <?php
+    echo "<link rel='stylesheet' href='../assets/css/$style'>";
     ?>
 </head>
 
@@ -20,7 +20,7 @@
         <nav>
             <div class="div_nav">
                 <img class="logo" src="../assets/ressources/icons/logo.png">
-                <a href="#" class="header">
+                <a href="controller.php?page=accueil" class="header">
                     <h1 class="title-header">PinPix</h1>
                 </a>
             </div>
@@ -38,29 +38,33 @@
             <div class="onglets">
                 <li><a href="controller.php?page=accueil">Accueil</a></li>
                 <li><a href="controller.php?page=contact">Contact</a></li>
-    <?php
-        function visit(){
-                echo '<li><a href="controller.php?page=connexion">Connexion</a></li>';
-        }
-        function user(){
-                echo '<li class="nav-item dropdown">
+                <?php
+                function visit()
+                {
+                    echo '<li><a href="controller.php?page=connexion">Connexion</a></li>';
+                }
+                function user()
+                {
+                    echo '<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle menu-focus" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Menu
                         </a>
                     <ul class="dropdown-menu nav-connected">
                         <li><a class="dropdown-item" href="controller.php?page=profil">Profil</a></li>
-                        <li><a class="dropdown-item" href="controller.php?page=compte" id="compte">'.$_SESSION["nom"].'</a></li>
+                        <li><a class="dropdown-item" href="controller.php?page=compte" id="compte">' . $_SESSION["nom"] . '</a></li>
                         <li><a class="dropdown-item" href="controller.php?page=follows">Mes follows</a></li>
                         <li><a class="dropdown-item" href="controller.php?page=deconnexion">Se déconnecter</a></li>';
-                        function admin(){
-                            echo  '<li><a class="dropdown-item" href="controller.php?page=dashboard">Dashboard</a></li>';
-                        }      
-                        echo '</ul>';
-        }
-        function fermerNav(){
-            echo"
+                    function admin()
+                    {
+                        echo  '<li><a class="dropdown-item" href="controller.php?page=dashboard">Dashboard</a></li>';
+                    }
+                    echo '</ul>';
+                }
+                function fermerNav()
+                {
+                    echo "
                 </div>
             </nav>
         </header>";
-        }
-    ?>
+                }
+                ?>
