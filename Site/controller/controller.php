@@ -265,7 +265,7 @@ if(isset($_GET["page"])){
     
                 <p id='user2'>".$key[0]."
                     <button onclick='addFollower(this)' class='unfollow'>
-                        <i class='bi bi-heart-fill'></i>
+                        <i class='bi bi-suit-heart'></i>
                     </button>
                 </p>
                 <p>".$key[3]."
