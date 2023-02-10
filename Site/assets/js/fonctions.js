@@ -1,8 +1,13 @@
 let connectedUser = document.getElementById('compte').textContent;
+let statutFollow = document.getElementsByClassName('unfollow');
 
-function addFollower(this){
-    let followUser;
-    //console.log(this.parentNode.textContent);
+function addFollower(){
+
+    if(statutFollow == 'unfollow'){
+        statutFollow.srcAttribute = ("class", "follow");
+    }else{
+        statutFollow.srcAttribute = ("class", "unfollow");
+    }
 
     $.ajax({
         url: 'localhost/pinpix/site/controller/fonctions.php',
@@ -13,6 +18,12 @@ function addFollower(this){
         }
     });
 }
+
+
+
+
+
+
 
 function addLike(this){
     let imgLike = document.getElementById('image');
