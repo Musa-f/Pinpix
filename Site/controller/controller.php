@@ -9,14 +9,12 @@
         if(isset($_POST["mail_connect"]) and isset($_POST["mdp_connect"])){
             $mail = $_POST["mail_connect"];
             $mdp = $_POST["mdp_connect"];
-
             $user = getMDP($bdd, $mail, $mdp);
             $user = $user->fetch();
-    
             if(isset($_SESSION["nom"]) != null){
     
             }else{
-                if($user != null){
+                if(password_verify($mdp, $user["pwd_user"])){
                     verifConnexion($bdd, $user);
                 }else{
                     echo "mdp ou user incorrect";
@@ -25,15 +23,15 @@
         }elseif(isset($_POST["nom"]) and isset($_POST["mail"]) and isset($_POST["mdp"])){
             $mail = $_POST["mail"];
             $mdp = $_POST["mdp"];
-
             $user = getMDP($bdd, $mail, $mdp);
             $user = $user->fetch();
     
             if(isset($_SESSION["nom"]) != null){
     
             }else{
-                if($user != null){
+                if(password_verify($mdp, $user["pwd_user"])){
                     verifConnexion($bdd, $user);
+                    print_r($_SESSION);
                 }else{
                     echo "mdp ou user incorrect";
                 }
@@ -46,6 +44,7 @@
             $nom = $_POST["nom"];
             $mail = $_POST["mail"];
             $mdp = $_POST["mdp"];
+            $mdp = password_hash($mdp,PASSWORD_DEFAULT);
             $verifmail = getAllUserByName($bdd, $mail);
             $verifmail = $verifmail -> fetchAll();
             $verifnom = getAllUserByName($bdd, $nom);
@@ -101,6 +100,7 @@
     }
     
     function afficheUserGalerie($bdd, $id_user){
+        $resultat = [];
         //on cherche l ID de la galerie
         $id_gallery = getGal($bdd,$id_user);
         $id_gallery = $id_gallery -> fetch();
@@ -113,7 +113,6 @@
         $nom_user = $nom_user["name_user"];
 
 
-        
         if(count($img) == 0){
             echo "l'utilisateur n'a pas de tag";
         }else{
@@ -140,18 +139,35 @@
             $nb_follow = count($nb_follow);
         }
 
-        $BoolLike = getBoolLike($bdd, $id_image, $_SESSION["id"]);
-        $BoolLike = $BoolLike -> fetchAll();
-        if(count($BoolLike) == 0){
-            $BoolLike = false;
+        if(isset($_SESSION["id"])){
+            $BoolLike = getBoolLike($bdd, $id_image, $_SESSION["id"]);
+            $BoolLike = $BoolLike -> fetchAll();
+            $BoolLike = $BoolLike[0];
+            if($BoolLike[0] == null){
+                $BoolLike = "false";
+            }else{
+                $BoolLike = "true";
+            }
+
+            $BoolFollow = getBoolFollow($bdd, $id_user, $_SESSION["id"]);
+            $BoolFollow = $BoolFollow -> fetchAll();
+
+            $BoolFollow = $BoolFollow[0];
+            if($BoolFollow[0] == null){
+                $BoolFollow = "false";
+            }else{
+                $BoolFollow = "true";
+            }
+
+
+            array_push($resultat, array($nom_user, $value, $nb_follow, $nb_likes, $BoolLike, $BoolFollow));
         }else{
-            $BoolLike = true;
+            array_push($resultat, array($nom_user, $value, $nb_follow, $nb_likes));
         }
-        
-        echo "<br> $nom_user <br> <img class='test' src='$value'><br> follow $nb_follow <br> like $nb_likes <br> aimer = $BoolLike";
         }
 
         }
+        return $resultat;
     }
 
     function rechercheGalUser($bdd){
@@ -175,7 +191,8 @@
 if(isset($_GET["page"])){
     $page = $_GET["page"];
     $style = $page.".css";
-
+    verifInscription($bdd);
+    connexion($bdd);
     include("../view/header.php");
     
     if(isset($_SESSION["role"])){
@@ -217,13 +234,12 @@ if(isset($_GET["page"])){
         include("../view/$page");
     }
 }else{
-    verifInscription($bdd);
-    connexion($bdd);
     $page ="accueil";
     $style = $page;
     $page.=".php";
+    verifInscription($bdd);
+    connexion($bdd);
     include("../view/header.php");
-
     if(isset($_SESSION["role"])){
         user();
         if($_SESSION["role"] == 1){
@@ -234,9 +250,8 @@ if(isset($_GET["page"])){
         visit();
     }
     fermerNav();
-
     include("../view/$page"); 
 }
-afficheUserGalerie($bdd, 1);
+
 include("../view/footer.php");
 ?>

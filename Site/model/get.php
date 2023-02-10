@@ -3,10 +3,9 @@ function getMDP($bdd,$mail_user,$pwd_user){
 
     try{
         //On recherche l id par le nom et le mdp
-        $req = $bdd->prepare("SELECT id_user FROM users where mail_user = :mail_user and pwd_user = :pwd_user");
+        $req = $bdd->prepare("SELECT pwd_user, id_user FROM users where mail_user = :mail_user");
         $req->execute(array(
             "mail_user" => $mail_user,
-            "pwd_user" => $pwd_user
         ));
         return $req; 
 
@@ -133,7 +132,7 @@ function getBoolLike($bdd, $id_image, $id_user){
     try{
          //On recherche le nombre de like
     $req = $bdd->prepare(
-        "SELECT * FROM likes WHERE :id_image and :id_user");
+        "SELECT COUNT(`id_user`)FROM `likes` WHERE id_image = :id_image AND id_user = :id_user");
     $req->execute(array(
         "id_image" => $id_image,
         "id_user" => $id_user
@@ -151,6 +150,21 @@ function getfollow($bdd, $id_user_2){
     $req = $bdd->prepare(
         "SELECT * FROM follow WHERE :id_user_2");
     $req->execute(array(
+        "id_user_2" => $id_user_2
+    ));
+    return $req;
+    }catch(Exception $e){
+        die("error : ".$e->getMessage());
+    }
+}
+
+function getBoolfollow($bdd, $id_user_1, $id_user_2){
+    try{
+         //On recherche le nombre de like
+    $req = $bdd->prepare(
+        "SELECT * FROM follow WHERE id_user_1 = :id_user_1 and id_user_2 = :id_user_2");
+    $req->execute(array(
+        "id_user_1" => $id_user_1,
         "id_user_2" => $id_user_2
     ));
     return $req;
