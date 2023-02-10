@@ -1,4 +1,4 @@
-div class="container">
+<div class="container">
     <div class="row">
         <div class="col-8">
 
@@ -18,28 +18,15 @@ div class="container">
                         <div class="form-group mt-3 mb-4">
                             <label for="floatingTextarea2">COMMENTAIRE</label>
                             <textarea class="form-control" placeholder="Message" id="floatingTextarea2" style="height: 100px"></textarea>
-                            
+
                         </div>
                         <div class="form-group mt-2 mb-3"></div>
-                            <button type="submit" class="btn btn-primary">ENVOYER</button>
-                        </div>
-                    </form>
+                        <button type="submit" class="btn btn-primary">ENVOYER</button>
                 </div>
+                </form>
             </div>
-
         </div>
+
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-<?php include('footer.php');?>
-</body>
-</html>
+</div>
