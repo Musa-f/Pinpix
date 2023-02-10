@@ -225,3 +225,31 @@ function getImgByLike($bdd, $id_image, $id_user)
     }
 }
 
+function getIdTag($bdd, $name_tag){
+    try{
+        //On recherche tout les tag
+   $req = $bdd->prepare(
+       "SELECT id_tag FROM tags WHERE name_tag like :name_tag");
+   $req->execute(array(
+       "name_tag" => $name_tag
+   ));
+   return $req;
+   }catch(Exception $e){
+       die("error : ".$e->getMessage());
+   }
+}
+
+function getAssign($bdd, $id_tag){
+    try{
+        //On recherche le nombre de like
+   $req = $bdd->prepare(
+       "SELECT id_image FROM assign WHERE id_tag = :id_tag");
+   $req->execute(array(
+       "id_tag" => $id_tag
+   ));
+   return $req;
+   }catch(Exception $e){
+       die("error : ".$e->getMessage());
+   }
+}
+
