@@ -170,6 +170,22 @@
         return $resultat;
     }
 
+    function afficheTagGalerie($bdd){
+        if(isset($_POST["recherche"])){
+            $tag_name = $_POST["recherche"]."%";
+            $all_tag_name = getIdTag($bdd, $tag_name);
+            $all_tag_name = $all_tag_name -> fetchAll();
+            foreach($all_tag_name as $key){
+                $all_image = getAssign($bdd, $key["id_tag"]);
+                foreach($all_image as $key_2){
+                    print_r($key_2);
+                }
+            }
+            return $all_tag_name;
+        }
+    }
+    print_r(afficheTagGalerie($bdd));
+
     function rechercheGalUser($bdd){
         //on vérifie si l'input à été envoyé 
         if(isset($_GET["recherche"]) and $_GET["recherche"] != null){
