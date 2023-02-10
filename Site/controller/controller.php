@@ -169,8 +169,6 @@
         }
         return $resultat;
     }
-    $test = afficheUserGalerie($bdd, 2);
-    print_r($test);
 
     function afficheTagGalerie($bdd){
         if(isset($_POST["recherche"])){
@@ -252,12 +250,35 @@ if(isset($_GET["page"])){
         include("../view/$page");
     }
 }else{
+
     $page ="accueil";
     $style = $page;
     $page.=".php";
     verifInscription($bdd);
     connexion($bdd);
     include("../view/header.php");
+    function displayImgAll($bdd, $key){ 
+        foreach($key as $key){
+        echo " 
+            <div class='box d-flex flex-column'>
+            <div class='d-flex justify-content-between'>
+    
+                <p id='user2'>".$key[0]."
+                    <button onclick='addFollower(this)' class='unfollow'>
+                        <i class='bi bi-heart-fill'></i>
+                    </button>
+                </p>
+                <p>".$key[3]."
+                    <button onclick='addLike(this)'>
+                        <i class='bi bi-hand-thumbs-up'></i>
+                    </button>
+                </p>
+    
+            </div>
+            <img src='../assets/ressources/img/".$key[1]."' alt='' data-bs-toggle='modal' data-bs-target='#picture' id='image' class='dimension'>
+        </div>"; 
+        }
+    }
     if(isset($_SESSION["role"])){
         user();
         if($_SESSION["role"] == 1){

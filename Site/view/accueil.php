@@ -8,5 +8,21 @@
             </p>
         </div>
     </div>
+
+    <div class="row justify-content-center">
+        <div class="col">
+            <div class="gallery-images">
+                <?php 
+                    
+                    displayImgAll($bdd, $img);
+                    $img = [];
+                    funv
+                    
+                ?>
+                    
+            </div>
+        </div>
+       
+    </div>
 </div>
 
