@@ -181,3 +181,60 @@ footer .services .service p {
     text-align: center;
 }
 // testing
+
+.dimension{
+    width: 200px;
+}
+
+.gallery-images {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+}
+
+.gallery-images .box {
+    width: 200px;
+    margin-top: 50px;
+}
+
+.gallery-images .box:hover {
+    scale: 1.2;
+}
+
+
+.gallery-images .box p {
+    margin: 0;
+}
+
+.add-image {
+    position: absolute;
+    border: none;
+    background: none;
+    right: 0px;
+    bottom: 0px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.add-image:hover {
+    scale: 0.5;
+}
+
+.add-image i {
+    font-size: 2.5em;
+    color: #733a39;
+    font-weight: bold;
+}
+
+button{
+    background: none;
+    border: none;
+}
+
+@media screen and(min-width:400) {
+    .gallery-images {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}

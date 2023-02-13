@@ -166,9 +166,12 @@ function afficheUserGalerie($bdd, $id_user)
                 array_push($resultat, array($nom_user, $value, $nb_follow, $nb_likes));
             }
         }
+
+        }
+        return $resultat;
     }
-    return $resultat;
-}
+    $test = afficheUserGalerie($bdd, 2);
+    print_r($test);
 
 function afficheTagGalerie($bdd)
 {
@@ -284,14 +287,14 @@ if (isset($_GET["page"])) {
             $page .= ".php";
             include("../view/$page");
     }
-} else {
-    $page = "accueil";
+}else{
+    $page ="accueil";
     $style = $page;
     $page .= ".php";
     verifInscription($bdd);
     connexion($bdd);
     include("../view/header.php");
-    if (isset($_SESSION["role"])) {
+    if(isset($_SESSION["role"])){
         user();
         if ($_SESSION["role"] == 1) {
             admin();

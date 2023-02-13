@@ -9,8 +9,6 @@
 #212529
 */
 @import url("https://fonts.googleapis.com/css2?family=Limelight&display=swap");
-
-/* PAGE ALL */
 *,
 ::before,
 ::after {
@@ -131,8 +129,7 @@ li .dropdown-item:hover {
 
 /*Navbar utilisateur connecté*/
 .nav-connected {
-  background-color: rgb(115, 58, 57);
-  border: solid #904f4e;
+  background-color: rgba(115, 58, 57, 0.6235294118);
 }
 
 .menu-focus:focus {
@@ -165,23 +162,65 @@ footer h1 {
 
 footer .services {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-footer .services {
+footer .services .service {
   margin-right: 30px;
 }
 
-.services div ul {
-  list-style-type: none;
-}
-
-.reseaux li {
-  font-size: 2rem;
+footer .services .service p {
+  max-width: 250px;
 }
 
 #end {
   text-align: center;
 }
 
-/*# sourceMappingURL=all.css.map */
+.dimension {
+  width: 200px;
+}
+
+.gallery-images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+
+.gallery-images .box {
+  width: 200px;
+  margin-top: 50px;
+}
+
+.gallery-images .box:hover {
+  scale: 1.2;
+}
+
+.gallery-images .box p {
+  margin: 0;
+}
+
+.add-image {
+  position: absolute;
+  border: none;
+  background: none;
+  right: 0px;
+  bottom: 0px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.add-image:hover {
+  scale: 0.5;
+}
+
+.add-image i {
+  font-size: 2.5em;
+  color: #733a39;
+  font-weight: bold;
+}
+
+button {
+  background: none;
+  border: none;
+}/*# sourceMappingURL=all.css.map */
