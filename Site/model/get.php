@@ -72,6 +72,23 @@ function getImg($bdd, $id_gallery)
     }
 }
 
+function getImgById($bdd, $id_image)
+{
+    try {
+        //On recherche l url de l image par son id
+        $req = $bdd->prepare(
+            "SELECT url_image FROM images
+        WHERE id_image = :id_image"
+        );
+        $req->execute(array(
+            "id_image" => $id_image
+        ));
+        return $req;
+    } catch (Exception $e) {
+        die("error : " . $e->getMessage());
+    }
+}
+
 function getGal($bdd, $id_user)
 {
     try {
@@ -264,6 +281,19 @@ function getUserbyGallery($bdd, $id_gallery)
             "id_gallery" => $id_gallery
         ));
         return $req;
+    } catch (Exception $e) {
+        die("error : " . $e->getMessage());
+    }
+}
+function afficheObj($bdd)
+{
+    try {
+        // On écrit la requête
+        $sql = "SELECT * FROM users AS u INNER JOIN images AS i ON u.id_image=i.id_image";
+        // On exécute la requête
+        $requete = $bdd->query($sql);
+        // On récupère les données
+        return $requete->fetchAll();
     } catch (Exception $e) {
         die("error : " . $e->getMessage());
     }

@@ -166,12 +166,11 @@ function afficheUserGalerie($bdd, $id_user)
                 array_push($resultat, array($nom_user, $value, $nb_follow, $nb_likes));
             }
         }
-
-        }
-        return $resultat;
     }
-    $test = afficheUserGalerie($bdd, 2);
-    print_r($test);
+    return $resultat;
+}
+$test = afficheUserGalerie($bdd, 2);
+print_r($test);
 
 function afficheTagGalerie($bdd)
 {
@@ -189,15 +188,16 @@ function afficheTagGalerie($bdd)
     }
 }
 
+$objet = afficheObj($bdd);
+
 function afficheIMGDate($bdd)
 {
     $all = getDateImg($bdd);
     $all = $all->fetchAll();
     $resultat = [];
     foreach ($all as $key) {
-        $url_img = getImg($bdd, $key["id_gallery"]);
+        $url_img = getImgById($bdd, $key["id_image"]);
         $url_img = $url_img->fetch();
-        $url_img = $url_img["url_image"];
         $id_user = getUserbyGallery($bdd, $key["id_gallery"]);
         $id_user = $id_user->fetch();
         $name_user = getAllUserById($bdd, $id_user["id_user"]);
@@ -210,7 +210,6 @@ function afficheIMGDate($bdd)
         } else {
             $like = count($like);
         }
-
         $follower = getfollow($bdd, $id_user["id_user"]);
         $follower = $follower->fetchAll();
         if (count($follower) == 0) {
@@ -222,6 +221,7 @@ function afficheIMGDate($bdd)
     }
     return $resultat;
 }
+
 print_r(afficheIMGDate($bdd));
 
 function rechercheGalUser($bdd)
@@ -287,14 +287,14 @@ if (isset($_GET["page"])) {
             $page .= ".php";
             include("../view/$page");
     }
-}else{
-    $page ="accueil";
+} else {
+    $page = "accueil";
     $style = $page;
     $page .= ".php";
     verifInscription($bdd);
     connexion($bdd);
     include("../view/header.php");
-    if(isset($_SESSION["role"])){
+    if (isset($_SESSION["role"])) {
         user();
         if ($_SESSION["role"] == 1) {
             admin();
