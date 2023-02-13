@@ -7,6 +7,14 @@
 }
 
 @media screen and (max-width:780px) {
+    #recherche {
+        width: 320px;
+    }
+
+    .header h1 {
+        font-size: 3rem;
+    }
+
     .gallery-images {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -22,9 +30,18 @@
     }
 }
 
-@media screen and(max-width:1000px){
+@media screen and (max-width:1000px) {
+    header {
+        height: auto;
+        padding: 10 0 10 0;
+    }
+
     nav {
         display: flex;
         flex-direction: column;
+    }
+
+    nav div {
+        padding-top: 5px;
     }
 }
