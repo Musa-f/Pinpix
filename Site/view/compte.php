@@ -24,14 +24,14 @@
                             <i class="bi bi-pencil-square"></i>
                             Nom d'utilisateur
                         </label>
-                        <input type="text" class="form-control" id="exampleInputPassword1" value="default">
+                        <input type="text" class="form-control" id="exampleInputPassword1" value="<?=$_SESSION["nom"]?>">
                     </div>
                     <div class="form-group mt-3">
                         <label for="exampleInputPassword1">
                             <i class="bi bi-pencil-square"></i>
                             Email
                         </label>
-                        <input type="email" class="form-control" id="exampleInputPassword1" value="default">
+                        <input type="email" class="form-control" id="exampleInputPassword1" value="<?=$_SESSION["mail"]?>">
                     </div>
                     <div class="form-group mt-3">
                         <label for="exampleInputPassword1">
