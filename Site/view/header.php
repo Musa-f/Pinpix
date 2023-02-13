@@ -45,6 +45,7 @@
                 function visit()
                 {
                     echo '<li><a href="controller.php?page=connexion">Connexion</a></li>';
+                    echo '<li><a href="controller.php?page=Inscription">Inscription</a></li>';
                 }
                 function user()
                 {
