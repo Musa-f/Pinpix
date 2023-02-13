@@ -132,7 +132,8 @@ li .dropdown-item:hover {
 
 /*Navbar utilisateur connecté*/
 .nav-connected {
-    background-color: rgba(115, 58, 57, 0.6235294118);
+    background-color: rgb(115, 58, 57);
+    border: solid rgb(150, 88, 87);
 }
 
 .menu-focus:focus {
