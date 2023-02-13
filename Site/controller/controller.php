@@ -213,7 +213,9 @@ function afficheIMGDate($bdd)
         } else {
             $follower = count($follower);
         }
-        array_push($resultat, array(["name_user" => $name_user,"Nb_like" => $like,"Nb_follower" => $follower,"url_img" => $url_img]));
+        $tags = getAssign($bdd, $key["id_image"]);
+        $tags = $tags -> fetchAll();
+        array_push($resultat, array(["name_user" => $name_user,"Nb_like" => $like,"Nb_follower" => $follower,"url_img" => $url_img, "tags" => $tags]));
     }
     return $resultat;
 }
