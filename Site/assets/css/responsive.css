@@ -30,6 +30,7 @@
     }
 }
 
+@media screen and (max-width:1000px){
 @media screen and (max-width:1000px) {
     header {
         height: auto;
@@ -39,6 +40,13 @@
     nav {
         display: flex;
         flex-direction: column;
+        padding-bottom: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav div {
+        padding-top: 5px;
     }
 
     nav div {
