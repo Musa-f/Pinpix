@@ -71,22 +71,6 @@ function getImg($bdd, $id_gallery)
         die("error : " . $e->getMessage());
     }
 }
-function getImgById($bdd, $id_image)
-{
-    try {
-        //On recherche l url de l image par son id
-        $req = $bdd->prepare(
-            "SELECT url_image FROM images
-        WHERE id_image = :id_image"
-        );
-        $req->execute(array(
-            "id_image" => $id_image
-        ));
-        return $req;
-    } catch (Exception $e) {
-        die("error : " . $e->getMessage());
-    }
-}
 
 function getImgById($bdd, $id_image)
 {
@@ -161,7 +145,7 @@ function getLike($bdd, $id_image)
     try {
         //On recherche le nombre de like
         $req = $bdd->prepare(
-            "SELECT * FROM likes WHERE :id_image"
+            "SELECT id_user FROM likes WHERE id_image = :id_image GROUP BY id_image "
         );
         $req->execute(array(
             "id_image" => $id_image
@@ -195,7 +179,7 @@ function getfollow($bdd, $id_user_2)
     try {
         //On recherche le nombre de follow
         $req = $bdd->prepare(
-            "SELECT * FROM follow WHERE :id_user_2"
+            "SELECT id_user_1 FROM follow WHERE id_user_2 = :id_user_2 GROUP BY id_user_2"
         );
         $req->execute(array(
             "id_user_2" => $id_user_2
@@ -216,6 +200,23 @@ function getBoolfollow($bdd, $id_user_1, $id_user_2)
         $req->execute(array(
             "id_user_1" => $id_user_1,
             "id_user_2" => $id_user_2
+        ));
+        return $req;
+    } catch (Exception $e) {
+        die("error : " . $e->getMessage());
+    }
+}
+
+function getDates($bdd, $id_image, $id_gallery)
+{
+    try {
+        //
+        $req = $bdd->prepare(
+            "SELECT date_image_links FROM links WHERE id_image = :id_image AND id_gallery = :id_gallery"
+        );
+        $req->execute(array(
+            "id_image" => $id_image,
+            "id_gallery" => $id_gallery
         ));
         return $req;
     } catch (Exception $e) {
@@ -279,6 +280,22 @@ function getAssign($bdd, $id_tag)
         );
         $req->execute(array(
             "id_tag" => $id_tag
+        ));
+        return $req;
+    } catch (Exception $e) {
+        die("error : " . $e->getMessage());
+    }
+}
+
+function getDescription($bdd, $id_image)
+{
+    try {
+        //On recherche le nombre de like
+        $req = $bdd->prepare(
+            "SELECT description_links FROM links WHERE id_image = :id_image"
+        );
+        $req->execute(array(
+            "id_image" => $id_image
         ));
         return $req;
     } catch (Exception $e) {
