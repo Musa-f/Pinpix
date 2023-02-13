@@ -190,6 +190,22 @@ function getfollow($bdd, $id_user_2)
     }
 }
 
+function getfollowers($bdd, $id_user_1)
+{
+    try {
+        //On recherche le nombre de follow
+        $req = $bdd->prepare(
+            "SELECT id_user_2 FROM follow WHERE id_user_1 = :id_user_1 GROUP BY id_user_1"
+        );
+        $req->execute(array(
+            "id_user_1" => $id_user_1
+        ));
+        return $req;
+    } catch (Exception $e) {
+        die("error : " . $e->getMessage());
+    }
+}
+
 function getBoolfollow($bdd, $id_user_1, $id_user_2)
 {
     try {
@@ -237,6 +253,21 @@ function getDateImg($bdd)
         die("error : " . $e->getMessage());
     }
 }
+function getDateImgUser($bdd, $id_gallery)
+{
+    try {
+        //On recherche la date de l'image
+        $req = $bdd->prepare(
+            "SELECT id_image, date_image_links FROM links where id_gallery = :id_gallery ORDER BY date_image_links DESC "
+        );
+        $req->execute(array(
+            "id_gallery" => $id_gallery
+        ));
+        return $req;
+    } catch (Exception $e) {
+        die("error : " . $e->getMessage());
+    }
+}
 
 function getImgByLike($bdd, $id_image, $id_user)
 {
@@ -266,6 +297,20 @@ function getIdTag($bdd, $name_tag)
             "name_tag" => $name_tag
         ));
         return $req;
+    } catch (Exception $e) {
+        die("error : " . $e->getMessage());
+    }
+}
+
+function getAllTag($bdd)
+{
+    try {
+        //On recherche tout les tag
+        $req = $bdd->prepare(
+            "SELECT name_tag FROM tags"
+        );
+        $req->execute();
+        return $req -> fetchAll();
     } catch (Exception $e) {
         die("error : " . $e->getMessage());
     }
