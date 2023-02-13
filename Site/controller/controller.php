@@ -165,11 +165,10 @@ function afficheUserGalerie($bdd, $id_user)
                 array_push($resultat, array($nom_user, $value, $nb_follow, $nb_likes));
             }
         }
-
-        }
-        return $resultat;
     }
-    $test = afficheUserGalerie($bdd, 2);
+    return $resultat;
+}
+$test = afficheUserGalerie($bdd, 2);
 
 function afficheTagGalerie($bdd)
 {
@@ -193,9 +192,11 @@ function afficheIMGDate($bdd)
     $all = getDateImg($bdd);
     $all = $all->fetchAll();
     $resultat = [];
+    $compteur = 0;
     foreach ($all as $key) {
         $url_img = getImgById($bdd, $key["id_image"]);
         $url_img = $url_img->fetch();
+        $url_img = $url_img[0];
         $id_user = getUserbyGallery($bdd, $key["id_gallery"]);
         $id_user = $id_user->fetch();
         $name_user = getAllUserById($bdd, $id_user["id_user"]);
@@ -203,6 +204,12 @@ function afficheIMGDate($bdd)
         $name_user = $name_user["name_user"];
         $like = getLike($bdd, $key["id_image"]);
         $like = $like->fetchAll();
+        $dates = getDates($bdd, $key["id_image"], $key["id_gallery"]);
+        $dates = $dates->fetch();
+        $dates = $dates[0];
+        $description = getDescription($bdd, $key["id_image"]);
+        $description = $description->fetch();
+        $description = $description[0];
         if (count($like) == 0) {
             $like = 0;
         } else {
@@ -215,7 +222,8 @@ function afficheIMGDate($bdd)
         } else {
             $follower = count($follower);
         }
-        array_push($resultat, array(["name_user" => $name_user,"Nb_like" => $like,"Nb_follower" => $follower,"url_img" => $url_img]));
+        $compteur = $compteur + 1;
+        array_push($resultat, ["compteur" => $compteur, "name_user" => $name_user, "date_image" => $dates, "description" => $description, "Nb_like" => $like, "Nb_follower" => $follower, "url_img" => $url_img]);
     }
     return $resultat;
 }
