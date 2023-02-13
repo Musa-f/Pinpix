@@ -30,7 +30,6 @@ function connexion($bdd)
         } else {
             if (password_verify($mdp, $user["pwd_user"])) {
                 verifConnexion($bdd, $user);
-                print_r($_SESSION);
             } else {
                 echo "mdp ou user incorrect";
             }
@@ -171,7 +170,6 @@ function afficheUserGalerie($bdd, $id_user)
         return $resultat;
     }
     $test = afficheUserGalerie($bdd, 2);
-    print_r($test);
 
 function afficheTagGalerie($bdd)
 {
@@ -182,7 +180,6 @@ function afficheTagGalerie($bdd)
         foreach ($all_tag_name as $key) {
             $all_image = getAssign($bdd, $key["id_tag"]);
             foreach ($all_image as $key_2) {
-                print_r($key_2);
             }
         }
         return $all_tag_name;
@@ -195,9 +192,8 @@ function afficheIMGDate($bdd)
     $all = $all->fetchAll();
     $resultat = [];
     foreach ($all as $key) {
-        $url_img = getImg($bdd, $key["id_gallery"]);
+        $url_img = getImgById($bdd, $key["id_image"]);
         $url_img = $url_img->fetch();
-        $url_img = $url_img["url_image"];
         $id_user = getUserbyGallery($bdd, $key["id_gallery"]);
         $id_user = $id_user->fetch();
         $name_user = getAllUserById($bdd, $id_user["id_user"]);
@@ -210,7 +206,6 @@ function afficheIMGDate($bdd)
         } else {
             $like = count($like);
         }
-
         $follower = getfollow($bdd, $id_user["id_user"]);
         $follower = $follower->fetchAll();
         if (count($follower) == 0) {
@@ -218,7 +213,7 @@ function afficheIMGDate($bdd)
         } else {
             $follower = count($follower);
         }
-        array_push($resultat, array($name_user, $like, $follower, $url_img));
+        array_push($resultat, array(["name_user" => $name_user,"Nb_like" => $like,"Nb_follower" => $follower,"url_img" => $url_img]));
     }
     return $resultat;
 }

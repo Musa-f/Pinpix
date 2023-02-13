@@ -71,6 +71,22 @@ function getImg($bdd, $id_gallery)
         die("error : " . $e->getMessage());
     }
 }
+function getImgById($bdd, $id_image)
+{
+    try {
+        //On recherche l url de l image par son id
+        $req = $bdd->prepare(
+            "SELECT url_image FROM images
+        WHERE id_image = :id_image"
+        );
+        $req->execute(array(
+            "id_image" => $id_image
+        ));
+        return $req;
+    } catch (Exception $e) {
+        die("error : " . $e->getMessage());
+    }
+}
 
 function getGal($bdd, $id_user)
 {
