@@ -1,0 +1,23 @@
+@media screen and (max-width:990px) {
+    .gallery-images {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .gallery-images {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .gallery-images {
+        display: grid;
+        grid-template-columns: 1FR;
+        justify-items: center;
+    }
+}
