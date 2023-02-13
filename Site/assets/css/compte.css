@@ -1,4 +1,9 @@
 /* PAGE COMPTE */
+.container {
+    padding: 10 0 50 0;
+    justify-content: center;
+}
+
 .change-image-account {
     width: 200px;
     height: 250px;
