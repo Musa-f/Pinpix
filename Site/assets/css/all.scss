@@ -231,7 +231,7 @@ button{
     border: none;
 }
 
-@media screen and(min-width:400) {
+@media screen and (min-width: 400px) {
     .gallery-images {
         display: grid;
         grid-template-columns: 1fr;
