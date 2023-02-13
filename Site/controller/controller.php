@@ -209,6 +209,8 @@ function afficheIMGDate($bdd)
         $description = getDescription($bdd, $key["id_image"]);
         $description = $description->fetch();
         $description = $description[0];
+        $tags = getAssign($bdd, $key["id_image"]);
+        $tags = $tags->fetchAll();
         if (count($like) == 0) {
             $like = 0;
         } else {
@@ -222,12 +224,11 @@ function afficheIMGDate($bdd)
             $follower = count($follower);
         }
         $compteur = $compteur + 1;
-        array_push($resultat, ["compteur" => $compteur, "name_user" => $name_user, "date_image" => $dates, "description" => $description, "Nb_like" => $like, "Nb_follower" => $follower, "url_img" => $url_img]);
+        $compteurSTR = "pict" . $compteur;
+        array_push($resultat, ["compteur" => $compteurSTR, "name_user" => $name_user, "date_image" => $dates, "description" => $description, "tags" => $tags, "Nb_like" => $like, "Nb_follower" => $follower, "url_img" => $url_img]);
     }
     return $resultat;
 }
-
-print_r(afficheIMGDate($bdd));
 
 function rechercheGalUser($bdd)
 {

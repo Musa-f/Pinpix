@@ -15,7 +15,9 @@
 
                 <!-- displayImgAll($bdd, $key) -->
                 <?php $objet = afficheIMGDate($bdd) ?>
-                <?php foreach ($objet as $key) : ?>
+                <?php foreach ($objet as $key) : $compteur = $key["compteur"]
+                ?>
+
                     <!-- -------------APPEL PHP---------------- -->
                     <div class='box d-flex flex-column'>
                         <div class='d-flex justify-content-between'>
@@ -30,24 +32,28 @@
                                 </button>
                             </p>
                         </div>
-
-                        <img src="../<?= $key["url_img"] ?>" alt='pygcvubyuyuctyg' data-bs-toggle='modal' data-bs-target='#picture' id='image' class='dimension' onclick="testfunction()">
+                        <img src="../<?= $key["url_img"] ?>" alt='pygcvubyuyuctyg' data-bs-toggle='modal' data-bs-target='#<?= $compteur ?>' id='image_<?= $compteur ?>' class='dimension'>
                     </div>
                     <!-- -------------FIN------------- -->
-                    <div class="modal fade" class="test" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="<?= $compteur ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                             <div class="modal-content">
                                 <div class="modal-body">
                                     <div class="d-flex flex-column justify-content-center">
                                         <div class="d-flex justify-content-between">
-                                            <p><?= $key["name_user"] ?> <i class="bi bi-suit-heart"></i></p>
-                                            <p><?= $key["Nb_follower"] ?><i class="bi bi-hand-thumbs-up"></i></p>
+                                            <p><?= $key["name_user"] . " " . $key["Nb_follower"] ?> <i class="bi bi-suit-heart"></i></p>
+                                            <p><?= $key["Nb_like"] ?><i class="bi bi-hand-thumbs-up"></i></p>
                                         </div>
                                         <img src="../<?= $key["url_img"] ?>" alt="">
                                         <div class="d-flex justify-content-between">
                                             <p>
                                                 <i class="bi bi-tags"></i>
-                                                tags1
+                                                <?php $tag = $key["tags"];
+                                                ?>
+                                                <?php foreach ($tag as $key_2) :
+                                                ?>
+                                                    <?php echo $key_2[0] ?>
+                                                <?php endforeach ?>
                                             </p>
                                             <p><?= $key["date_image"] ?></p>
                                         </div>

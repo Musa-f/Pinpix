@@ -271,15 +271,15 @@ function getIdTag($bdd, $name_tag)
     }
 }
 
-function getAssign($bdd, $id_tag)
+function getAssign($bdd, $id_image)
 {
     try {
         //On recherche le nombre de like
         $req = $bdd->prepare(
-            "SELECT id_image FROM assign WHERE id_tag = :id_tag"
+            "SELECT name_tag FROM assign inner join tags on tags.id_tag = assign.id_tag where id_image = :id_image"
         );
         $req->execute(array(
-            "id_tag" => $id_tag
+            "id_image" => $id_image
         ));
         return $req;
     } catch (Exception $e) {
