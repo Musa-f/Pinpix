@@ -29,6 +29,6 @@
         <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
         <script src="../assets/js/fonctions.js"></script>
         <script src="<?php echo $script ?>"></script>
-    </body>
+        </body>
 
-</html>
+        </html>
