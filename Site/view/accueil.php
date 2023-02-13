@@ -15,7 +15,7 @@
 
                 <!-- displayImgAll($bdd, $key) -->
 
-                    <!-- -------------APPEL PHP------------- -->
+                    <!-- -------------APPEL PHP---------------- -->
                     <div class='box d-flex flex-column'>
                         <div class='d-flex justify-content-between'>
                             <p id='user2'>user
