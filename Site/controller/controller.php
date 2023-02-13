@@ -147,7 +147,6 @@ function addImage($bdd)
         //on insert l'image dans la galerie de l'utilisateur
         $verifGal = getLink($bdd, $id_image["id_image"], $id_gallery["id_gallery"]);
         $verifGal = $verifGal->fetch();
-        insertTag($bdd,$id_image["id_image"],$id_tag[0]);
         //vérifier si la galerie de l'utilisateur a deja l'image
         if ($verifGal == null) {
             insertGal($bdd, $id_image["id_image"], $id_gallery["id_gallery"], $description);
