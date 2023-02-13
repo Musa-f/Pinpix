@@ -168,7 +168,6 @@ function afficheUserGalerie($bdd, $id_user)
     }
     return $resultat;
 }
-$test = afficheUserGalerie($bdd, 2);
 
 function afficheTagGalerie($bdd)
 {

@@ -1,3 +1,4 @@
+
 let connectedUser = document.getElementById('compte').textContent;
 let statutFollow = document.getElementsByClassName('unfollow');
 

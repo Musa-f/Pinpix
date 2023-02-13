@@ -31,10 +31,10 @@
                             </p>
                         </div>
 
-                        <img src="../<?= $key["url_img"] ?>" alt='pygcvubyuyuctyg' data-bs-toggle='modal' data-bs-target='#picture' id='image' class='dimension'>
+                        <img src="../<?= $key["url_img"] ?>" alt='pygcvubyuyuctyg' data-bs-toggle='modal' data-bs-target='#picture' id='image' class='dimension' onclick="testfunction()">
                     </div>
                     <!-- -------------FIN------------- -->
-                    <div class="modal fade" id="picture" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" class="test" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                             <div class="modal-content">
                                 <div class="modal-body">
