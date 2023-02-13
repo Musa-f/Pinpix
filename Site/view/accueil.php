@@ -15,7 +15,9 @@
 
                 <!-- displayImgAll($bdd, $key) -->
                 <?php $objet = afficheIMGDate($bdd) ?>
-                <?php foreach ($objet as $key) : ?>
+                <?php foreach ($objet as $key) : $compteur = $key["compteur"]
+                ?>
+
                     <!-- -------------APPEL PHP---------------- -->
                     <div class='box d-flex flex-column'>
                         <div class='d-flex justify-content-between'>
@@ -30,11 +32,10 @@
                                 </button>
                             </p>
                         </div>
-
-                        <img src="../<?= $key["url_img"] ?>" alt='pygcvubyuyuctyg' data-bs-toggle='modal' data-bs-target='#picture' id='image' class='dimension'>
+                        <img src="../<?= $key["url_img"] ?>" alt='pygcvubyuyuctyg' data-bs-toggle='modal' data-bs-target='#<?= $compteur ?>' id='image_<?= $compteur ?>' class='dimension'>
                     </div>
                     <!-- -------------FIN------------- -->
-                    <div class="modal fade" id="picture" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="<?= $compteur ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                             <div class="modal-content">
                                 <div class="modal-body">
@@ -47,9 +48,11 @@
                                         <div class="d-flex justify-content-between">
                                             <p>
                                                 <i class="bi bi-tags"></i>
-                                                tags1
-                                            </p>
-                                            <p><?= $key["date_image"] ?></p>
+                                                <?php foreach ($key["tags"] as $key_2) : ?>
+                                            <p><?= $key_2 ?></p>
+                                        <?php endforeach ?>
+                                        </p>
+                                        <p><?= $key["date_image"] ?></p>
                                         </div>
                                     </div>
                                     <div>
