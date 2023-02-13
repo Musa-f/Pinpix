@@ -6,7 +6,7 @@
     }
 }
 
-@media screen and (max-width:750px) {
+@media screen and (max-width:780px) {
     .gallery-images {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -19,5 +19,15 @@
         display: grid;
         grid-template-columns: 1FR;
         justify-items: center;
+    }
+}
+
+@media screen and (max-width:1000px){
+    nav {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 30px;
+        justify-content: center;
+        align-items: center;
     }
 }

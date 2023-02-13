@@ -30,7 +30,6 @@ function connexion($bdd)
         } else {
             if (password_verify($mdp, $user["pwd_user"])) {
                 verifConnexion($bdd, $user);
-                print_r($_SESSION);
             } else {
                 echo "mdp ou user incorrect";
             }
@@ -166,12 +165,9 @@ function afficheUserGalerie($bdd, $id_user)
                 array_push($resultat, array($nom_user, $value, $nb_follow, $nb_likes));
             }
         }
-
-        }
-        return $resultat;
     }
-    $test = afficheUserGalerie($bdd, 2);
-    print_r($test);
+    return $resultat;
+}
 
 function afficheTagGalerie($bdd)
 {
@@ -182,22 +178,24 @@ function afficheTagGalerie($bdd)
         foreach ($all_tag_name as $key) {
             $all_image = getAssign($bdd, $key["id_tag"]);
             foreach ($all_image as $key_2) {
-                print_r($key_2);
             }
         }
         return $all_tag_name;
     }
 }
 
+$objet = afficheObj($bdd);
+
 function afficheIMGDate($bdd)
 {
     $all = getDateImg($bdd);
     $all = $all->fetchAll();
     $resultat = [];
+    $compteur = 0;
     foreach ($all as $key) {
-        $url_img = getImg($bdd, $key["id_gallery"]);
+        $url_img = getImgById($bdd, $key["id_image"]);
         $url_img = $url_img->fetch();
-        $url_img = $url_img["url_image"];
+        $url_img = $url_img[0];
         $id_user = getUserbyGallery($bdd, $key["id_gallery"]);
         $id_user = $id_user->fetch();
         $name_user = getAllUserById($bdd, $id_user["id_user"]);
@@ -205,12 +203,19 @@ function afficheIMGDate($bdd)
         $name_user = $name_user["name_user"];
         $like = getLike($bdd, $key["id_image"]);
         $like = $like->fetchAll();
+        $dates = getDates($bdd, $key["id_image"], $key["id_gallery"]);
+        $dates = $dates->fetch();
+        $dates = $dates[0];
+        $description = getDescription($bdd, $key["id_image"]);
+        $description = $description->fetch();
+        $description = $description[0];
+        $tags = getAssign($bdd, $key["id_image"]);
+        $tags = $tags->fetchAll();
         if (count($like) == 0) {
             $like = 0;
         } else {
             $like = count($like);
         }
-
         $follower = getfollow($bdd, $id_user["id_user"]);
         $follower = $follower->fetchAll();
         if (count($follower) == 0) {
@@ -218,11 +223,12 @@ function afficheIMGDate($bdd)
         } else {
             $follower = count($follower);
         }
-        array_push($resultat, array($name_user, $like, $follower, $url_img));
+        $compteur = $compteur + 1;
+        $compteurSTR = "pict" . $compteur;
+        array_push($resultat, ["compteur" => $compteurSTR, "name_user" => $name_user, "date_image" => $dates, "description" => $description, "tags" => $tags, "Nb_like" => $like, "Nb_follower" => $follower, "url_img" => $url_img]);
     }
     return $resultat;
 }
-print_r(afficheIMGDate($bdd));
 
 function rechercheGalUser($bdd)
 {
@@ -287,14 +293,14 @@ if (isset($_GET["page"])) {
             $page .= ".php";
             include("../view/$page");
     }
-}else{
-    $page ="accueil";
+} else {
+    $page = "accueil";
     $style = $page;
     $page .= ".php";
     verifInscription($bdd);
     connexion($bdd);
     include("../view/header.php");
-    if(isset($_SESSION["role"])){
+    if (isset($_SESSION["role"])) {
         user();
         if ($_SESSION["role"] == 1) {
             admin();
