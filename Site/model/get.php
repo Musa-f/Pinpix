@@ -1,5 +1,5 @@
 <?php
-function getMDP($bdd, $mail_user, $pwd_user)
+function getMDP($bdd, $mail_user)
 {
 
     try {
@@ -190,18 +190,14 @@ function getBoolfollow($bdd, $id_user_1, $id_user_2)
     }
 }
 
-function getDateImg($bdd, $id_image, $id_gallery, $date_image_links)
+function getDateImg($bdd)
 {
     try {
         //On recherche la date de l'image
         $req = $bdd->prepare(
-            "SELECT date_image_links FROM links WHERE id_image = :id_image and id_gallery = :id_gallery"
+            "SELECT id_image, id_gallery, date_image_links FROM links ORDER BY date_image_links DESC "
         );
-        $req->execute(array(
-            "id_image" => $id_image,
-            "id_gallery" => $id_gallery,
-            "date_image_links" => $date_image_links
-        ));
+        $req->execute();
         return $req;
     } catch (Exception $e) {
         die("error : " . $e->getMessage());
@@ -225,31 +221,50 @@ function getImgByLike($bdd, $id_image, $id_user)
     }
 }
 
-function getIdTag($bdd, $name_tag){
-    try{
+function getIdTag($bdd, $name_tag)
+{
+    try {
         //On recherche tout les tag
-   $req = $bdd->prepare(
-       "SELECT id_tag FROM tags WHERE name_tag like :name_tag");
-   $req->execute(array(
-       "name_tag" => $name_tag
-   ));
-   return $req;
-   }catch(Exception $e){
-       die("error : ".$e->getMessage());
-   }
+        $req = $bdd->prepare(
+            "SELECT id_tag FROM tags WHERE name_tag like :name_tag"
+        );
+        $req->execute(array(
+            "name_tag" => $name_tag
+        ));
+        return $req;
+    } catch (Exception $e) {
+        die("error : " . $e->getMessage());
+    }
 }
 
-function getAssign($bdd, $id_tag){
-    try{
+function getAssign($bdd, $id_tag)
+{
+    try {
         //On recherche le nombre de like
-   $req = $bdd->prepare(
-       "SELECT id_image FROM assign WHERE id_tag = :id_tag");
-   $req->execute(array(
-       "id_tag" => $id_tag
-   ));
-   return $req;
-   }catch(Exception $e){
-       die("error : ".$e->getMessage());
-   }
+        $req = $bdd->prepare(
+            "SELECT id_image FROM assign WHERE id_tag = :id_tag"
+        );
+        $req->execute(array(
+            "id_tag" => $id_tag
+        ));
+        return $req;
+    } catch (Exception $e) {
+        die("error : " . $e->getMessage());
+    }
 }
 
+function getUserbyGallery($bdd, $id_gallery)
+{
+    try {
+        //On recherche l'id user par gallery
+        $req = $bdd->prepare(
+            "SELECT id_user FROM give where id_gallery = :id_gallery"
+        );
+        $req->execute(array(
+            "id_gallery" => $id_gallery
+        ));
+        return $req;
+    } catch (Exception $e) {
+        die("error : " . $e->getMessage());
+    }
+}

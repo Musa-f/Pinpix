@@ -169,8 +169,6 @@ function afficheUserGalerie($bdd, $id_user)
     }
     return $resultat;
 }
-$test = afficheUserGalerie($bdd, 2);
-print_r($test);
 
 function afficheTagGalerie($bdd)
 {
@@ -187,7 +185,41 @@ function afficheTagGalerie($bdd)
         return $all_tag_name;
     }
 }
-print_r(afficheTagGalerie($bdd));
+
+function afficheIMGDate($bdd)
+{
+    $all = getDateImg($bdd);
+    $all = $all->fetchAll();
+    $resultat = [];
+    foreach ($all as $key) {
+        $url_img = getImg($bdd, $key["id_gallery"]);
+        $url_img = $url_img->fetch();
+        $url_img = $url_img["url_image"];
+        $id_user = getUserbyGallery($bdd, $key["id_gallery"]);
+        $id_user = $id_user->fetch();
+        $name_user = getAllUserById($bdd, $id_user["id_user"]);
+        $name_user = $name_user->fetch();
+        $name_user = $name_user["name_user"];
+        $like = getLike($bdd, $key["id_image"]);
+        $like = $like->fetchAll();
+        if (count($like) == 0) {
+            $like = 0;
+        } else {
+            $like = count($like);
+        }
+
+        $follower = getfollow($bdd, $id_user["id_user"]);
+        $follower = $follower->fetchAll();
+        if (count($follower) == 0) {
+            $follower = 0;
+        } else {
+            $follower = count($follower);
+        }
+        array_push($resultat, array($name_user, $like, $follower, $url_img));
+    }
+    return $resultat;
+}
+print_r(afficheIMGDate($bdd));
 
 function rechercheGalUser($bdd)
 {
