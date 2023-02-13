@@ -168,7 +168,6 @@ function afficheUserGalerie($bdd, $id_user)
     }
     return $resultat;
 }
-$test = afficheUserGalerie($bdd, 2);
 
 function afficheTagGalerie($bdd)
 {
@@ -230,8 +229,6 @@ function afficheIMGDate($bdd)
     }
     return $resultat;
 }
-
-print_r(afficheIMGDate($bdd));
 
 function rechercheGalUser($bdd)
 {

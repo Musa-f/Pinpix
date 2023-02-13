@@ -41,18 +41,21 @@
                                 <div class="modal-body">
                                     <div class="d-flex flex-column justify-content-center">
                                         <div class="d-flex justify-content-between">
-                                            <p><?= $key["name_user"] ?> <i class="bi bi-suit-heart"></i></p>
-                                            <p><?= $key["Nb_follower"] ?><i class="bi bi-hand-thumbs-up"></i></p>
+                                            <p><?= $key["name_user"] . " " . $key["Nb_follower"] ?> <i class="bi bi-suit-heart"></i></p>
+                                            <p><?= $key["Nb_like"] ?><i class="bi bi-hand-thumbs-up"></i></p>
                                         </div>
                                         <img src="../<?= $key["url_img"] ?>" alt="">
                                         <div class="d-flex justify-content-between">
                                             <p>
                                                 <i class="bi bi-tags"></i>
-                                                <?php foreach ($key["tags"] as $key_2) : ?>
-                                            <p><?= $key_2 ?></p>
-                                        <?php endforeach ?>
-                                        </p>
-                                        <p><?= $key["date_image"] ?></p>
+                                                <?php $tag = $key["tags"];
+                                                ?>
+                                                <?php foreach ($tag as $key_2) :
+                                                ?>
+                                                    <?php echo $key_2[0] ?>
+                                                <?php endforeach ?>
+                                            </p>
+                                            <p><?= $key["date_image"] ?></p>
                                         </div>
                                     </div>
                                     <div>
