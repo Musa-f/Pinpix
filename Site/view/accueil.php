@@ -1,4 +1,4 @@
-<div class="container mt-4 mb-4">
+<div class="container mt-4 mb-4 pt-5">
     <div class="row justify-content-center text-center">
         <div class="col">
             <h2>"Des souvenirs éternels avec PinPix"</h2>
