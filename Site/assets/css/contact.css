@@ -14,9 +14,8 @@
 .rectangle {
     position: absolute;
     width: 700px;
-    top: 120px;
-    right: -250px;
-    bottom: 100px;
+    left: 30%;
+    top: 100px;
 }
 
 .btn-primary {
