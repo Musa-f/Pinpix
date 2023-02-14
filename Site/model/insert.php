@@ -30,17 +30,18 @@ function insertIMG($bdd,$url_image){
         die("error : ".$e->getMessage());
     }
 }
-function insertGal($bdd,$id_image,$id_gallery){
+function insertGal($bdd,$id_image,$id_gallery, $description_links){
     try{
          //On lie l' image par son ID à sa galerie
         $req = $bdd->prepare(
-            "INSERT INTO links(id_image, id_gallery) VALUES
-            (:id_image, :id_gallery)"
+            "INSERT INTO links(id_image, id_gallery, description_links) VALUES
+            (:id_image, :id_gallery, :description_links)"
         );
         
         $req->execute(array(
             "id_image" => $id_image,
-            "id_gallery" => $id_gallery
+            "id_gallery" => $id_gallery,
+            "description_links" => $description_links
         ));
         $req->closeCursor();
     }catch(Exception $e){
@@ -93,6 +94,24 @@ function insertLike($bdd,$id_image,$id_user){
         $req->execute(array(
             "id_image" => $id_image,
             "id_user" => $id_user
+        ));
+        $req->closeCursor();
+    }catch(Exception $e){
+        die("error : ".$e->getMessage());
+    }
+}
+
+function insertTag($bdd,$id_image,$id_tag){
+    try{
+         //On lie l' image par son ID à L'id de l'user
+        $req = $bdd->prepare(
+            "INSERT INTO assign(id_image, id_tag ) VALUES
+            (:id_image, :id_tag )"
+        );
+        
+        $req->execute(array(
+            "id_image" => $id_image,
+            "id_tag " => $id_tag 
         ));
         $req->closeCursor();
     }catch(Exception $e){

@@ -7,7 +7,7 @@
         <div class="col-6">
             <div class="row">
                 <div class="col-3">
-                    <h2>Username</h2>
+                    <h2><?= $info["name_user"] ?></h2>
                 </div>
                 <div class="col-1 d-flex justify-content-center align-items-center">
                     <h2><i class="bi bi-suit-heart align-self-center"></i></h2>
@@ -15,17 +15,17 @@
             </div>
             <div class="row">
                 <div class="col-5 fw-bold">
-                    <a href="" class="color-dark a-hover" id="link-follows" data-bs-toggle="modal" data-bs-target="#modal-follows-followers">14 Follows</a>
+                    <a href="" class="color-dark a-hover" id="link-follows" data-bs-toggle="modal" data-bs-target="#modal-follows-followers"><?= $info["nb_Follow"] ?> Follows</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-5 fw-bold">
-                    <a href="" class="color-dark a-hover" data-bs-toggle="modal" data-bs-target="#modal-follows-followers">56 Followers</a>
+                    <a href="" class="color-dark a-hover" data-bs-toggle="modal" data-bs-target="#modal-follows-followers"><?= $info["nb_Followers"] ?> Followers</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col mt-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quaerat facilis veniam architecto, vitae esse delectus odit eveniet necessitatibus eum quam excepturi quas tenetur debitis ab enim quae quod nisi?
+                    <?= $info["bio_user"]?>
                 </div>
             </div>
         </div>
@@ -46,12 +46,14 @@
                 <div class="gallery-images">
                     
                     <!-- -------------APPEL PHP------------- -->
+                    <?php foreach($info["image"] as $key) :?>
                     <div class="box d-flex flex-column">
                         <div class="d-flex justify-content-end">
-                            <p>189<i class="bi bi-hand-thumbs-up-fill"></i></p>
+                            <p><?= $key["like"]?><i class="bi bi-hand-thumbs-up-fill"></i></p>
                         </div>
-                        <img src="https://fastly.picsum.photos/id/641/200/200.jpg?hmac=9pd71nRRRsT7TXf0zn0hQ6tW6VQnQ-UtL1JXDhJZB8E" alt="">
+                        <img src="../<?= $key["url"]?>" alt="">
                     </div>
+                    <?php endforeach?>
                     <!-- -------------FIN------------- -->
                     
 
@@ -78,19 +80,14 @@
                         Ajouter une image
                     </h5>
                 </div>
-                <form action="" method="post">
+                <form action="controller.php?page=profil" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label for="name_image">Nom</label>
-                            <input type="text" class="form-control" name="image_name">
-                        </div>
                         <div class="form-group mt-2">
                             <label for="tags_image">Tags</label>
                             <select class="form-select" id="tags_image" name="tags_image">
-                                <option>Nature</option>
-                                <option>Animaux</option>
-                                <option>Technologie</option>
-                                <option>Design</option>
+                                <?php foreach(getAllTag($bdd) as $key) :?>
+                                <option><?= $key[0] ?></option>
+                                <?php endforeach?>
                             </select>
                         </div>
                         <div class="form-group mt-2">

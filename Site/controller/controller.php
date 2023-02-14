@@ -63,26 +63,84 @@ function verifInscription($bdd)
         }
     }
 }
+function infoUser($bdd){
+    if(isset($_SESSION["id"])){
+        $id_user = $_SESSION["id"];
+        $AllInfo = getAllUserById($bdd, $id_user);
+        $AllInfo = $AllInfo -> fetch();
+        $nb_Follow = getfollow($bdd, $id_user);
+        $nb_Follow = $nb_Follow -> fetchAll();
+        if (count($nb_Follow) == 0) {
+            $nb_Follow = 0;
+        } else {
+            $nb_Follow = count($nb_Follow);
+        }
+        $AllInfo["nb_Follow"] = $nb_Follow;
 
+        $nb_Followers = getfollowers($bdd, $id_user);
+        $nb_Followers = $nb_Followers -> fetchAll();
+        if (count($nb_Followers) == 0) {
+            $nb_Followers = 0;
+        } else {
+            $nb_Followers = count($nb_Followers);
+        }
+        $AllInfo["nb_Followers"] = $nb_Followers;
+        
+        $gallerie = getGal($bdd, $id_user);
+        $gallerie = $gallerie -> fetch();
+        $gallerie = getDateImgUser($bdd, $gallerie[0]) -> fetchAll();
+        $img = [];
+        $compteur = 0;
+        foreach($gallerie as $key){
+            $like = getLike($bdd, $key[0]) -> fetchAll();
+            if (count($like) == 0) {
+                $like = 0;
+            } else {
+                $like = count($like);
+            }
+            $url = getImgById($bdd, $key[0]) -> fetch();
+            array_push($img,["url" =>$url[0], "like" => $like]);
+            $compteur = $compteur + 1;
+            if($compteur == 16){
+                break;
+            }
+        }
+        $AllInfo["image"] = $img;
+        return $AllInfo;
+    }
+}
 function addImage($bdd)
 {
-
-    if (isset($_FILES["img"]) and $_FILES["img"] != null) {
+    if (isset($_FILES["upload_image"]) and isset($_POST["tags_image"]) and $_FILES["upload_image"] != null and $_POST["tags_image"] != null) {
+        echo "dans la boucle";
         //On obtient l'image envoyée
-        $tmpName = $_FILES['img']['tmp_name'];
-        $name = $_FILES['img']['name'];
-        $size = $_FILES['img']['size'];
-        $error = $_FILES['img']['error'];
+        $tmpName = $_FILES['upload_image']['tmp_name'];
+        $name = $_FILES['upload_image']['name'];
+        $size = $_FILES['upload_image']['size'];
+        $error = $_FILES['upload_image']['error'];
+        $tag = $_POST["tags_image"];
+
+        if(isset($_POST["description_image"]) and $_POST["description_image"] != null){
+            $description = $_POST["description_image"];
+        }else{
+            $description = "Aucune description";
+        }
+
         //on bouge l'image dans le dossier des images
         $fichier = move_uploaded_file($tmpName, "../assets/ressources/img/$name");
-        $verifIMG = getIdImg($bdd, "../assets/ressources/img/$name");
+        $compteur = 0;
+        $verifIMG = getIdImg($bdd, "/assets/ressources/img/".$name);
         if ($verifIMG->fetch() == null) {
             //on insert l'image dans la base de données en lui donnant le chemin pour la récupérer
-            insertIMG($bdd, "../assets/ressources/img/$name");
+            insertIMG($bdd, "/assets/ressources/img/$name");
         }
+
+        $id_tag = getIdTag($bdd, $tag);
+        $id_tag = $id_tag -> fetch();
         //on va chercher l'id de l'image
-        $id_image = getIdImg($bdd, "../assets/ressources/img/$name");
+        $id_image = getIdImg($bdd, "/assets/ressources/img/$name");
         $id_image = $id_image->fetch();
+        print_r($id_image);
         //on va chercher l'id de la galerie de l'utilisateur grâce à l'id de l'utilisateur sauvegardé par   un cookie de session
         $id_gallery = getGal($bdd, $_SESSION["id"]);
         $id_gallery = $id_gallery->fetch();
@@ -91,9 +149,9 @@ function addImage($bdd)
         $verifGal = $verifGal->fetch();
         //vérifier si la galerie de l'utilisateur a deja l'image
         if ($verifGal == null) {
-            insertGal($bdd, $id_image["id_image"], $id_gallery["id_gallery"]);
+            insertGal($bdd, $id_image["id_image"], $id_gallery["id_gallery"], $description);
         } else {
-            echo "non";
+            echo "Erreur";
         }
     }
 }
@@ -281,9 +339,11 @@ if (isset($_GET["page"])) {
             include("../view/$page");
             break;
         case "profil":
+            $info = infoUser($bdd);
             $style = $page;
             $page .= ".php";
             include("../view/$page");
+            addImage($bdd);
             break;
         case "deconnexion":
             session_destroy();
