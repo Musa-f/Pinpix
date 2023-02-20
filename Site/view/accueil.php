@@ -13,7 +13,6 @@
         <div class="col">
             <div class="gallery-images">
 
-                <!-- displayImgAll($bdd, $key) -->
                 <?php $objet = afficheIMGDate($bdd) ?>
                 <?php foreach ($objet as $key) : $compteur = $key["compteur"]
                 ?>

@@ -63,13 +63,14 @@ function verifInscription($bdd)
         }
     }
 }
-function infoUser($bdd){
-    if(isset($_SESSION["id"])){
+function infoUser($bdd)
+{
+    if (isset($_SESSION["id"])) {
         $id_user = $_SESSION["id"];
         $AllInfo = getAllUserById($bdd, $id_user);
-        $AllInfo = $AllInfo -> fetch();
+        $AllInfo = $AllInfo->fetch();
         $nb_Follow = getfollow($bdd, $id_user);
-        $nb_Follow = $nb_Follow -> fetchAll();
+        $nb_Follow = $nb_Follow->fetchAll();
         if (count($nb_Follow) == 0) {
             $nb_Follow = 0;
         } else {
@@ -78,30 +79,30 @@ function infoUser($bdd){
         $AllInfo["nb_Follow"] = $nb_Follow;
 
         $nb_Followers = getfollowers($bdd, $id_user);
-        $nb_Followers = $nb_Followers -> fetchAll();
+        $nb_Followers = $nb_Followers->fetchAll();
         if (count($nb_Followers) == 0) {
             $nb_Followers = 0;
         } else {
             $nb_Followers = count($nb_Followers);
         }
         $AllInfo["nb_Followers"] = $nb_Followers;
-        
+
         $gallerie = getGal($bdd, $id_user);
-        $gallerie = $gallerie -> fetch();
-        $gallerie = getDateImgUser($bdd, $gallerie[0]) -> fetchAll();
+        $gallerie = $gallerie->fetch();
+        $gallerie = getDateImgUser($bdd, $gallerie[0])->fetchAll();
         $img = [];
         $compteur = 0;
-        foreach($gallerie as $key){
-            $like = getLike($bdd, $key[0]) -> fetchAll();
+        foreach ($gallerie as $key) {
+            $like = getLike($bdd, $key[0])->fetchAll();
             if (count($like) == 0) {
                 $like = 0;
             } else {
                 $like = count($like);
             }
-            $url = getImgById($bdd, $key[0]) -> fetch();
-            array_push($img,["url" =>$url[0], "like" => $like]);
+            $url = getImgById($bdd, $key[0])->fetch();
+            array_push($img, ["url" => $url[0], "like" => $like]);
             $compteur = $compteur + 1;
-            if($compteur == 16){
+            if ($compteur == 16) {
                 break;
             }
         }
@@ -120,23 +121,23 @@ function addImage($bdd)
         $error = $_FILES['upload_image']['error'];
         $tag = $_POST["tags_image"];
 
-        if(isset($_POST["description_image"]) and $_POST["description_image"] != null){
+        if (isset($_POST["description_image"]) and $_POST["description_image"] != null) {
             $description = $_POST["description_image"];
-        }else{
+        } else {
             $description = "Aucune description";
         }
 
         //on bouge l'image dans le dossier des images
         $fichier = move_uploaded_file($tmpName, "../assets/ressources/img/$name");
         $compteur = 0;
-        $verifIMG = getIdImg($bdd, "/assets/ressources/img/".$name);
+        $verifIMG = getIdImg($bdd, "/assets/ressources/img/" . $name);
         if ($verifIMG->fetch() == null) {
             //on insert l'image dans la base de données en lui donnant le chemin pour la récupérer
             insertIMG($bdd, "/assets/ressources/img/$name");
         }
 
         $id_tag = getIdTag($bdd, $tag);
-        $id_tag = $id_tag -> fetch();
+        $id_tag = $id_tag->fetch();
         //on va chercher l'id de l'image
         $id_image = getIdImg($bdd, "/assets/ressources/img/$name");
         $id_image = $id_image->fetch();
@@ -242,8 +243,6 @@ function afficheTagGalerie($bdd)
     }
 }
 
-$objet = afficheObj($bdd);
-
 function afficheIMGDate($bdd)
 {
     $all = getDateImg($bdd);
@@ -283,7 +282,7 @@ function afficheIMGDate($bdd)
         }
         $compteur = $compteur + 1;
         $compteurSTR = "pict" . $compteur;
-        array_push($resultat, ["compteur" => $compteurSTR, "name_user" => $name_user, "date_image" => $dates, "description" => $description, "tags" => $tags, "Nb_like" => $like, "Nb_follower" => $follower, "url_img" => $url_img]);
+        array_push($resultat, ["compteur" => $compteurSTR, "id_user" => $id_user, "name_user" => $name_user, "date_image" => $dates, "description" => $description, "tags" => $tags, "Nb_like" => $like, "Nb_follower" => $follower, "url_img" => $url_img]);
     }
     return $resultat;
 }
@@ -325,6 +324,7 @@ if (isset($_GET["page"])) {
     fermerNav();
 
     switch ($page) {
+
         case "dashboard":
             $style = $page;
             $page .= ".php";

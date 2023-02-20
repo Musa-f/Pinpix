@@ -310,7 +310,7 @@ function getAllTag($bdd)
             "SELECT name_tag FROM tags"
         );
         $req->execute();
-        return $req -> fetchAll();
+        return $req->fetchAll();
     } catch (Exception $e) {
         die("error : " . $e->getMessage());
     }
@@ -359,19 +359,6 @@ function getUserbyGallery($bdd, $id_gallery)
             "id_gallery" => $id_gallery
         ));
         return $req;
-    } catch (Exception $e) {
-        die("error : " . $e->getMessage());
-    }
-}
-function afficheObj($bdd)
-{
-    try {
-        // On écrit la requête
-        $sql = "SELECT * FROM users AS u INNER JOIN images AS i ON u.id_image=i.id_image";
-        // On exécute la requête
-        $requete = $bdd->query($sql);
-        // On récupère les données
-        return $requete->fetchAll();
     } catch (Exception $e) {
         die("error : " . $e->getMessage());
     }
